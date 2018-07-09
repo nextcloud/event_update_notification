@@ -23,6 +23,8 @@
 	<bugs>https://github.com/nextcloud/event_update_notification/issues</bugs>
 	<repository type="git">https://github.com/nextcloud/event_update_notification.git</repository>
 
+	<screenshot>https://github.com/nickv-nextcloud/event_update_notification/raw/master/docs/demo.png</screenshot>
+
 	<dependencies>
 		<nextcloud min-version="13" max-version="14" />
 	</dependencies>
