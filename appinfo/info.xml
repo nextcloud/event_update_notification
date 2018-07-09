@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>event_update_notification</id>
+	<name>Notifications for calendar event updates</name>
+	<summary>Receive a notification when an event in a shared calendar was added, modified or deleted.</summary>
+	<description><![CDATA[Receive a notification when an event in a shared calendar was added, modified or deleted.]]></description>
+
+	<version>0.2.0</version>
+	<licence>agpl</licence>
+	<author>Joas Schilling</author>
+
+	<namespace>EventUpdateNotification</namespace>
+
+	<types>
+		<logging/>
+		<dav/>
+	</types>
+
+	<category>organization</category>
+
+	<website>https://github.com/nextcloud/event_update_notification</website>
+	<bugs>https://github.com/nextcloud/event_update_notification/issues</bugs>
+	<repository type="git">https://github.com/nextcloud/event_update_notification.git</repository>
+
+	<dependencies>
+		<nextcloud min-version="13" max-version="14" />
+	</dependencies>
+</info>
