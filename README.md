@@ -1,4 +1,4 @@
-# Notifications for calendar event updates
+# Notifications for calendar event actions
 
 🆕 New event was created
 
