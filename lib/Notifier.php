@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
  *
@@ -57,12 +58,6 @@ class Notifier implements INotifier {
 	/** @var string[]  */
 	protected $userDisplayNames = [];
 
-	/**
-	 * @param IFactory $languageFactory
-	 * @param IURLGenerator $url
-	 * @param IUserManager $userManager
-	 * @param IDateTimeFormatter $dateTimeFormatter
-	 */
 	public function __construct(IFactory $languageFactory, IURLGenerator $url, IUserManager $userManager, IDateTimeFormatter $dateTimeFormatter) {
 		$this->languageFactory = $languageFactory;
 		$this->url = $url;
@@ -84,7 +79,7 @@ class Notifier implements INotifier {
 
 		$this->l = $this->languageFactory->get('dav', $languageCode);
 
-		$notification->setIcon($this->url->getAbsoluteURL($this->url->imagePath('core', 'places/calendar-dark.svg')));
+		$notification->setIcon($this->url->getAbsoluteURL($this->url->imagePath('core', 'places/calendar.svg')));
 
 		if ($notification->getSubject() === self::SUBJECT_OBJECT_ADD . '_event') {
 			$subject = $this->l->t('{actor} created event {event} in calendar {calendar}');
@@ -122,12 +117,7 @@ class Notifier implements INotifier {
 		return $notification;
 	}
 
-	/**
-	 * @param INotification $notification
-	 * @param string $subject
-	 * @param array $parameters
-	 */
-	protected function setSubjects(INotification $notification, $subject, array $parameters) {
+	protected function setSubjects(INotification $notification, string $subject, array $parameters) {
 		$placeholders = $replacements = [];
 		foreach ($parameters as $placeholder => $parameter) {
 			$placeholders[] = '{' . $placeholder . '}';
@@ -138,10 +128,6 @@ class Notifier implements INotifier {
 			->setRichSubject($subject, $parameters);
 	}
 
-	/**
-	 * @param INotification $notification
-	 * @return array
-	 */
 	protected function getParameters(INotification $notification): array {
 		$subject = $notification->getSubject();
 		$parameters = $notification->getSubjectParameters();
@@ -159,11 +145,8 @@ class Notifier implements INotifier {
 
 		throw new \InvalidArgumentException('Invalid subject');
 	}
-	/**
-	 * @param array $eventData
-	 * @return array
-	 */
-	protected function generateObjectParameter($eventData): array {
+
+	protected function generateObjectParameter(array $eventData): array {
 		if (!\is_array($eventData) || !isset($eventData['id'], $eventData['name'])) {
 			throw new \InvalidArgumentException(' Invalid data');
 		}
@@ -175,11 +158,7 @@ class Notifier implements INotifier {
 		];
 	}
 
-	/**
-	 * @param array $data
-	 * @return array
-	 */
-	protected function generateCalendarParameter($data): array {
+	protected function generateCalendarParameter(array $data): array {
 		if ($data['uri'] === CalDavBackend::PERSONAL_CALENDAR_URI &&
 			$data['name'] === CalDavBackend::PERSONAL_CALENDAR_NAME) {
 			return [
@@ -196,11 +175,7 @@ class Notifier implements INotifier {
 		];
 	}
 
-	/**
-	 * @param string $uid
-	 * @return array
-	 */
-	protected function generateUserParameter($uid): array {
+	protected function generateUserParameter(string $uid): array {
 		if (!isset($this->userDisplayNames[$uid])) {
 			$this->userDisplayNames[$uid] = $this->getUserDisplayName($uid);
 		}
@@ -212,11 +187,7 @@ class Notifier implements INotifier {
 		];
 	}
 
-	/**
-	 * @param string $uid
-	 * @return string
-	 */
-	protected function getUserDisplayName($uid): string {
+	protected function getUserDisplayName(string $uid): string {
 		$user = $this->userManager->get($uid);
 		if ($user instanceof IUser) {
 			return $user->getDisplayName();

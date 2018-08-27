@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
  *
@@ -23,7 +24,6 @@
 
 namespace OCA\EventUpdateNotification;
 
-
 use OCP\Notification\IManager as INotificationManager;
 use OCP\IGroup;
 use OCP\IGroupManager;
@@ -44,11 +44,6 @@ class Backend {
 	/** @var IUserSession */
 	protected $userSession;
 
-	/**
-	 * @param INotificationManager $notificationManager
-	 * @param IGroupManager $groupManager
-	 * @param IUserSession $userSession
-	 */
 	public function __construct(INotificationManager $notificationManager, IGroupManager $groupManager, IUserSession $userSession) {
 		$this->notificationManager = $notificationManager;
 		$this->groupManager = $groupManager;
@@ -62,8 +57,10 @@ class Backend {
 	 * @param array $calendarData
 	 * @param array $shares
 	 * @param array $objectData
+	 * @throws \Sabre\VObject\Recur\MaxInstancesExceededException
+	 * @throws \Sabre\VObject\Recur\NoInstancesException
 	 */
-	public function onTouchCalendarObject($action, array $calendarData, array $shares, array $objectData) {
+	public function onTouchCalendarObject(string $action, array $calendarData, array $shares, array $objectData) {
 		if (!isset($calendarData['principaluri'])) {
 			return;
 		}
@@ -86,16 +83,9 @@ class Backend {
 
 		$action = $action . '_' . $object['type'];
 
-//		if ($object['type'] === 'todo' && strpos($action, Event::SUBJECT_OBJECT_UPDATE) === 0 && $object['status'] === 'COMPLETED') {
-//			$action .= '_completed';
-//		} else if ($object['type'] === 'todo' && strpos($action, Event::SUBJECT_OBJECT_UPDATE) === 0 && $object['status'] === 'NEEDS-ACTION') {
-//			$action .= '_needs_action';
-//		}
-
 		$notification = $this->notificationManager->createNotification();
 		$notification->setApp('event_update_notification')
 			->setObject('calendar', (int) $calendarData['id'])
-//			->setType($object['type'] === 'event' ? 'calendar_event' : 'calendar_todo')
 			->setUser($currentUser)
 			->setDateTime(new \DateTime());
 
@@ -188,19 +178,18 @@ class Backend {
 		return array_unique($users);
 	}
 
+	/**
+	 * @param string $data
+	 * @return array
+	 * @throws \Sabre\VObject\Recur\MaxInstancesExceededException
+	 * @throws \Sabre\VObject\Recur\NoInstancesException
+	 */
 	protected function getNearestDateTime(string $data): array {
 		$vObject = \Sabre\VObject\Reader::read($data);
 		/** @var VEvent $component */
 		$component = $vObject->VEVENT;
 
 		if (!isset($component->RRULE)) {
-			if (!$component->DTSTART->hasTime()) {
-			/** @var \DateTime $endDate */
-			$endDate = clone $component->DTSTART->getDateTime();
-			// $component->DTSTART->getDateTime() returns DateTimeImmutable
-			$endDate = $endDate->modify('+1 day');
-			$lastOccurrence = $endDate->getTimestamp();
-		}
 			return [$component->DTSTART->getDateTime(), $component->DTSTART->hasTime()];
 		}
 
