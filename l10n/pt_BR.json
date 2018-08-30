@@ -1,8 +1,5 @@
 { "translations": {
     "Calendar event updates" : "Atualizações no calendário de eventos",
-    "{actor} created event {event} in calendar {calendar}" : "{actor} criou o evento {event} no calendário {calendar}",
-    "{actor} deleted event {event} from calendar {calendar}" : "{actor} excluiu o evento {event} no calendário {calendar}",
-    "{actor} updated event {event} in calendar {calendar}" : "{actor} atualizou o evento {event} no calendário {calendar}",
     "Personal" : "Pessoal",
     "Notifications for calendar event updates" : "Notificações para atualizações no calendário de eventos",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Receba uma notificação quando um evento em um calendário compartilhado for adicionado, modificado ou excluído."
