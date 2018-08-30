@@ -69,7 +69,7 @@ class Application extends App {
 			$l = $this->getContainer()->getServer()->getL10NFactory()->get('event_update_notification');
 			return [
 				'id' => 'event_update_notification',
-				'name' => $l->t('Calendar event updates'),
+				'name' => $l->t('Calendar event update notifications'),
 			];
 		});
 	}
