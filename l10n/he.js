@@ -1,7 +1,6 @@
 OC.L10N.register(
     "event_update_notification",
     {
-    "Calendar event updates" : "עדכוני אירועים ביומן",
     "Personal" : "אישי",
     "Notifications for calendar event updates" : "התראות על עדכונים של אירועים ביומן",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "קבלת התראה כאשר נוסף, נערך או נמחק אירוע ביומן משותף."

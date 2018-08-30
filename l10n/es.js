@@ -1,7 +1,6 @@
 OC.L10N.register(
     "event_update_notification",
     {
-    "Calendar event updates" : "Actualizaciones de eventos del calendario",
     "Personal" : "Personal",
     "Notifications for calendar event updates" : "Notificaciones para actualizaciones de eventos del calendario",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Recibe una notificación cuando se añade, modifica o elimina un evento en un calendario compartido."
