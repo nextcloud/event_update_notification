@@ -77,16 +77,16 @@ class Notifier implements INotifier {
 			throw new \InvalidArgumentException('Invalid app');
 		}
 
-		$this->l = $this->languageFactory->get('dav', $languageCode);
+		$this->l = $this->languageFactory->get('event_update_notification', $languageCode);
 
 		$notification->setIcon($this->url->getAbsoluteURL($this->url->imagePath('core', 'places/calendar.svg')));
 
 		if ($notification->getSubject() === self::SUBJECT_OBJECT_ADD . '_event') {
-			$subject = $this->l->t('{actor} created event {event} in calendar {calendar}');
+			$subject = $this->l->t('{actor} created {event} in {calendar}');
 		} else if ($notification->getSubject() === self::SUBJECT_OBJECT_DELETE . '_event') {
-			$subject = $this->l->t('{actor} deleted event {event} from calendar {calendar}');
+			$subject = $this->l->t('{actor} deleted {event} from {calendar}');
 		} else if ($notification->getSubject() === self::SUBJECT_OBJECT_UPDATE . '_event') {
-			$subject = $this->l->t('{actor} updated event {event} in calendar {calendar}');
+			$subject = $this->l->t('{actor} updated {event} in {calendar}');
 		} else {
 			throw new \InvalidArgumentException('Invalid subject');
 		}
