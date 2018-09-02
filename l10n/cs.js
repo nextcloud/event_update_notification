@@ -6,6 +6,7 @@ OC.L10N.register(
     "{actor} deleted {event} from {calendar}" : "{actor} vymazal(a) {event} z {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} změnil(a) {event} v {calendar}",
     "Personal" : "Osobní",
+    "Notifications for calendar event updates" : "Oznamování pro aktualizace událostí v kalendáři",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Obdržet oznámení když je ve sdíleném kalendáři přidána, upravena nebo smazána událost."
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");
