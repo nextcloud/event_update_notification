@@ -49,3 +49,6 @@ nbproject
 # WebFinger
 .well-known
 /.buildpath
+
+# Nextcloud
+/build
