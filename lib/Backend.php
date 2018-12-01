@@ -82,18 +82,23 @@ class Backend {
 		}
 
 		$action = $action . '_' . $object['type'];
+		list ($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
+		$now = new \DateTime();
+
+		if ($dateTime < $now) {
+			// Do not notify about past events
+			return;
+		}
 
 		$notification = $this->notificationManager->createNotification();
 		$notification->setApp('event_update_notification')
 			->setObject('calendar', (int) $calendarData['id'])
 			->setUser($currentUser)
-			->setDateTime(new \DateTime());
-
-		list ($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
-		$notification->setMessage('event_update_notification', [
-			'start' => $dateTime->format(\DateTime::ATOM),
-			'hasTime' => $hasTime,
-		]);
+			->setDateTime($now)
+			->setMessage('event_update_notification', [
+				'start' => $dateTime->format(\DateTime::ATOM),
+				'hasTime' => $hasTime,
+			]);
 
 		$users = $this->getUsersForShares($shares);
 		$users[] = $owner;
