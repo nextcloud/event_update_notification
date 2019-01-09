@@ -151,6 +151,11 @@ class Notifier implements INotifier {
 			throw new \InvalidArgumentException(' Invalid data');
 		}
 
+		if (!empty($eventData['classified'])) {
+			// Busy is stored untranslated in the database, so we translate it here.
+			$eventData['name'] = $this->l->t('Busy');
+		}
+
 		return [
 			'type' => 'calendar-event',
 			'id' => $eventData['id'],
