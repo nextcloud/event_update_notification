@@ -6,7 +6,7 @@
 	<summary>Receive a notification when an event in a shared calendar was added, modified or deleted.</summary>
 	<description><![CDATA[Receive a notification when an event in a shared calendar was added, modified or deleted.]]></description>
 
-	<version>0.3.1</version>
+	<version>0.3.2</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 

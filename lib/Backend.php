@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace OCA\EventUpdateNotification;
 
+use OCA\DAV\CalDAV\CalDavBackend;
 use OCP\Notification\IManager as INotificationManager;
 use OCP\IGroup;
 use OCP\IGroupManager;
@@ -81,6 +82,7 @@ class Backend {
 			return;
 		}
 
+		$classification = $objectData['classification'] ?? CalDavBackend::CLASSIFICATION_PUBLIC;
 		$action = $action . '_' . $object['type'];
 		list ($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
 		$now = new \DateTime();
@@ -108,6 +110,13 @@ class Backend {
 				continue;
 			}
 
+			if ($classification === CalDavBackend::CLASSIFICATION_PRIVATE && $user !== $owner) {
+				// Private events are only available to the owner
+				continue;
+			}
+
+			$isClassified = $classification === CalDavBackend::CLASSIFICATION_CONFIDENTIAL && $user !== $owner;
+
 			$notification->setUser($user)
 				->setSubject($action,
 					[
@@ -119,7 +128,8 @@ class Backend {
 						],
 						'object' => [
 							'id' => $object['id'],
-							'name' => $object['name'],
+							'name' => $isClassified ? 'Busy' : $object['name'],
+							'classified' => $isClassified,
 						],
 					]
 				);

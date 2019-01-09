@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.3.2 – 2019-01-09
+### Fixed
+- Private events no longer trigger notifications for sharees
+
+
 ## 0.3.1 – 2018-12-01
 ### Changed
 - Support for Nextcloud 15
