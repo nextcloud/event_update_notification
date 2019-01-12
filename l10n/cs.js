@@ -5,6 +5,7 @@ OC.L10N.register(
     "{actor} created {event} in {calendar}" : "{actor} vytvořil(a) {event} v {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} vymazal(a) {event} z {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} změnil(a) {event} v {calendar}",
+    "Busy" : "Zaneprázdněno",
     "Personal" : "Osobní",
     "Notifications for calendar event updates" : "Oznamování o aktualizací událostí v kalendáři",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Obdržet oznámení když je ve sdíleném kalendáři přidána, upravena nebo smazána událost."
