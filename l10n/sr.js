@@ -5,6 +5,7 @@ OC.L10N.register(
     "{actor} created {event} in {calendar}" : "{actor} је направио догађај {event} у календару {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} је обрисао догађај {event} из календара {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} је ажурирао догађај {event} у календару {calendar}",
+    "Busy" : "Заузет",
     "Personal" : "Лично",
     "Notifications for calendar event updates" : "Обавештења за ажурирања догађаја у календару",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Примајте обавештења када се догађај у дељеном календару дода, измени или обрише."
