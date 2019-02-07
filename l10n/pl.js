@@ -5,6 +5,7 @@ OC.L10N.register(
     "{actor} created {event} in {calendar}" : "{actor} utworzył/-a wydarzenie {event} z kalendarza {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} usunął/-ęła wydarzenie {event} z kalendarza {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} zaktualizował/-a wydarzenie {event} z kalendarza {calendar}",
+    "Busy" : "Pracuje",
     "Personal" : "Osobiste",
     "Notifications for calendar event updates" : "Powiadomienia dla aktualizacji wydarzeń w kalendarzu",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Odbieraj powiadomienie kiedy wydarzenie w udostępnionym kalendarzu zostało dodane, zmodyfikowane lub usunięte."
