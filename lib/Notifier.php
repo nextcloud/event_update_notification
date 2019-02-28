@@ -25,12 +25,14 @@ declare(strict_types=1);
 namespace OCA\EventUpdateNotification;
 
 use OCA\DAV\CalDAV\CalDavBackend;
+use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IDateTimeFormatter;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\L10N\IFactory;
+use OCP\Notification\IManager as INotificationManager;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 
@@ -42,26 +44,33 @@ class Notifier implements INotifier {
 
 	/** @var IFactory */
 	protected $languageFactory;
-
+	/** @var ITimeFactory */
+	protected $timeFactory;
 	/** @var IL10N */
 	protected $l;
-
 	/** @var IURLGenerator */
 	protected $url;
-
 	/** @var IUserManager */
 	protected $userManager;
-
+	/** @var INotificationManager */
+	protected $notificationManager;
 	/** @var IDateTimeFormatter */
 	protected $dateTimeFormatter;
 
 	/** @var string[]  */
 	protected $userDisplayNames = [];
 
-	public function __construct(IFactory $languageFactory, IURLGenerator $url, IUserManager $userManager, IDateTimeFormatter $dateTimeFormatter) {
+	public function __construct(IFactory $languageFactory,
+								ITimeFactory $timeFactory,
+								IURLGenerator $url,
+								IUserManager $userManager,
+								INotificationManager $notificationManager,
+								IDateTimeFormatter $dateTimeFormatter) {
 		$this->languageFactory = $languageFactory;
+		$this->timeFactory = $timeFactory;
 		$this->url = $url;
 		$this->userManager = $userManager;
+		$this->notificationManager = $notificationManager;
 		$this->dateTimeFormatter = $dateTimeFormatter;
 	}
 
@@ -88,11 +97,18 @@ class Notifier implements INotifier {
 		} else if ($notification->getSubject() === self::SUBJECT_OBJECT_UPDATE . '_event') {
 			$subject = $this->l->t('{actor} updated {event} in {calendar}');
 		} else {
+			$this->notificationManager->markProcessed($notification);
 			throw new \InvalidArgumentException('Invalid subject');
 		}
 
 		$params = $notification->getMessageParameters();
 		$start = \DateTime::createFromFormat(\DateTime::ATOM, $params['start']);
+
+		if ($start < $this->timeFactory->getDateTime()) {
+			$this->notificationManager->markProcessed($notification);
+			throw new \InvalidArgumentException('Past event');
+		}
+
 		if (!empty($params['hasTime'])) {
 			$notification->setParsedMessage(
 				$this->dateTimeFormatter->formatDateTime(
