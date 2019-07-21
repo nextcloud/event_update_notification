@@ -1,4 +1,5 @@
 { "translations": {
-    "Personal" : "Pertsonala"
+    "Personal" : "Pertsonala",
+    "Notifications for calendar event updates" : "Egutegiko gertaeren eguneraketen jakinarazpenak"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
