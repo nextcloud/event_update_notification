@@ -83,7 +83,7 @@ class Backend {
 		}
 
 		$classification = $objectData['classification'] ?? CalDavBackend::CLASSIFICATION_PUBLIC;
-		$action = $action . '_' . $object['type'];
+		$action .= '_' . $object['type'];
 		list ($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
 		$now = new \DateTime();
 
