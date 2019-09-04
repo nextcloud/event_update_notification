@@ -94,7 +94,7 @@ class Backend {
 
 		$notification = $this->notificationManager->createNotification();
 		$notification->setApp('event_update_notification')
-			->setObject('calendar', (int) $calendarData['id'])
+			->setObject('calendar', (string) $calendarData['id'])
 			->setUser($currentUser)
 			->setDateTime($now)
 			->setMessage('event_update_notification', [
