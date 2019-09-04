@@ -63,14 +63,6 @@ class Application extends App {
 	}
 
 	protected function registerNotifier() {
-		$this->getContainer()->getServer()->getNotificationManager()->registerNotifier(function() {
-			return $this->getContainer()->query(Notifier::class);
-		}, function() {
-			$l = $this->getContainer()->getServer()->getL10NFactory()->get('event_update_notification');
-			return [
-				'id' => 'event_update_notification',
-				'name' => $l->t('Calendar event update notifications'),
-			];
-		});
+		$this->getContainer()->getServer()->getNotificationManager()->registerNotifierService(Notifier::class);
 	}
 }
