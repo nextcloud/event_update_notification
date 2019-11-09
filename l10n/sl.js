@@ -1,6 +1,7 @@
 OC.L10N.register(
     "event_update_notification",
     {
+    "Calendar event update notifications" : "Obvestila o posodobitvah koledarja",
     "Personal" : "Osebno",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Prejmite obvestilo, ko je v koledar dodan dogodek oziroma je ta spremenjen ali izbrisan."
 },
