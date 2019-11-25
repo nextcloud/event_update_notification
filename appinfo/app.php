@@ -19,5 +19,5 @@
  *
  */
 
-$application = new \OCA\EventUpdateNotification\AppInfo\Application();
+$application = \OC::$server->query(\OCA\EventUpdateNotification\AppInfo\Application::class);
 $application->register();
