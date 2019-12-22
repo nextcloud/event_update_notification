@@ -5,6 +5,7 @@ OC.L10N.register(
     "{actor} deleted {event} from {calendar}" : "{actor} изтри {event} в {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} промени {event} в {calendar}",
     "Busy" : "Зает",
+    "Personal" : "Лични",
     "Notifications for calendar event updates" : "Известия за промени по събития от календар"
 },
 "nplurals=2; plural=(n != 1);");

@@ -5,6 +5,7 @@ OC.L10N.register(
     "{actor} created {event} in {calendar}" : "{actor} opprettet {event} i {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} slettet {event} fra {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} oppdaterte {event} i {calendar}",
+    "Busy" : "Opptatt",
     "Personal" : "Personlig",
     "Notifications for calendar event updates" : "Oppdateringsvarsel for hendelser i kalender ",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Motta varsel når en hendelse i en delt kalender er lagt til, endret eller slettet."
