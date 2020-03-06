@@ -1,5 +1,6 @@
 { "translations": {
     "Calendar event update notifications" : "Obvestila o posodobitvah koledarja",
+    "{actor} created {event} in {calendar}" : "{actor} ustvari dogodek {event} v koledarju {calendar}",
     "Busy" : "Zasedeno",
     "Personal" : "Osebno",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Prejmite obvestilo, ko je v koledar dodan dogodek oziroma je ta spremenjen ali izbrisan."
