@@ -1,6 +1,10 @@
 OC.L10N.register(
     "event_update_notification",
     {
+    "Calendar event update notifications" : "הודעות עדכוני אירועי לוח שנה",
+    "{actor} created {event} in {calendar}" : "{event} נוצר על ידי {actor} ב{calendar}",
+    "{actor} deleted {event} from {calendar}" : "{event} נמחק על ידי {actor} מ{calendar}",
+    "{actor} updated {event} in {calendar}" : "{event} עודכן על ידי {actor} ב{calendar}",
     "Busy" : "עסוק",
     "Personal" : "אישי",
     "Notifications for calendar event updates" : "התראות על עדכונים של אירועים ביומן",
