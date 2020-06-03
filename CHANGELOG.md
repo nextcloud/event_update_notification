@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.2 – 2020-06-03
+### Changed
+- Support for Nextcloud 19
+
 ## 1.0.1 – 2020-01-15
 ### Changed
 - Support for Nextcloud 18
