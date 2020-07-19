@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Calendar event update notifications" : "Uppdateringar av kalenderhändelseaviseringar",
     "{actor} created {event} in {calendar}" : "{actor} skapade {event} i {calendar}",
-    "{actor} deleted {event} from {calendar}" : "{actor} raderade {event} från {calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor} tog bort {event} från {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} uppdaterade {event} i {calendar}",
     "Busy" : "Upptagen",
     "Personal" : "Personlig",
