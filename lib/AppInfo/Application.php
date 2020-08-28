@@ -23,46 +23,29 @@
 
 namespace OCA\EventUpdateNotification\AppInfo;
 
-use OCA\EventUpdateNotification\Backend;
+use OCA\DAV\Events\CalendarObjectCreatedEvent;
+use OCA\DAV\Events\CalendarObjectDeletedEvent;
+use OCA\DAV\Events\CalendarObjectUpdatedEvent;
+use OCA\EventUpdateNotification\EventListener;
 use OCA\EventUpdateNotification\Notifier;
 use OCP\AppFramework\App;
-use Symfony\Component\EventDispatcher\GenericEvent;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\Notification\IManager;
 
-class Application extends App {
+class Application extends App implements IBootstrap {
 	public function __construct() {
 		parent::__construct('event_update_notification');
 	}
 
-	public function register() {
-		$this->registerEventListener();
-		$this->registerNotifier();
+	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(CalendarObjectCreatedEvent::class, EventListener::class);
+		$context->registerEventListener(CalendarObjectUpdatedEvent::class, EventListener::class);
+		$context->registerEventListener(CalendarObjectDeletedEvent::class, EventListener::class);
 	}
 
-	public function registerEventListener() {
-		$dispatcher = $this->getContainer()->getServer()->getEventDispatcher();
-		$listener = function(GenericEvent $event, $eventName) {
-			/** @var Backend $backend */
-			$backend = $this->getContainer()->query(Backend::class);
-
-			$subject = Notifier::SUBJECT_OBJECT_ADD;
-			if ($eventName === '\OCA\DAV\CalDAV\CalDavBackend::updateCalendarObject') {
-				$subject = Notifier::SUBJECT_OBJECT_UPDATE;
-			} else if ($eventName === '\OCA\DAV\CalDAV\CalDavBackend::deleteCalendarObject') {
-				$subject = Notifier::SUBJECT_OBJECT_DELETE;
-			}
-			$backend->onTouchCalendarObject(
-				$subject,
-				$event->getArgument('calendarData'),
-				$event->getArgument('shares'),
-				$event->getArgument('objectData')
-			);
-		};
-		$dispatcher->addListener('\OCA\DAV\CalDAV\CalDavBackend::createCalendarObject', $listener);
-		$dispatcher->addListener('\OCA\DAV\CalDAV\CalDavBackend::updateCalendarObject', $listener);
-		$dispatcher->addListener('\OCA\DAV\CalDAV\CalDavBackend::deleteCalendarObject', $listener);
-	}
-
-	protected function registerNotifier() {
-		$this->getContainer()->getServer()->getNotificationManager()->registerNotifierService(Notifier::class);
+	public function boot(IBootContext $context): void {
+		$context->getServerContainer()->get(IManager::class)->registerNotifierService(Notifier::class);
 	}
 }

@@ -25,6 +25,11 @@ declare(strict_types=1);
 namespace OCA\EventUpdateNotification;
 
 use OCA\DAV\CalDAV\CalDavBackend;
+use OCA\DAV\Events\CalendarObjectCreatedEvent;
+use OCA\DAV\Events\CalendarObjectDeletedEvent;
+use OCA\DAV\Events\CalendarObjectUpdatedEvent;
+use OCP\EventDispatcher\Event;
+use OCP\EventDispatcher\IEventListener;
 use OCP\Notification\IManager as INotificationManager;
 use OCP\IGroup;
 use OCP\IGroupManager;
@@ -34,7 +39,7 @@ use Sabre\VObject\Component\VEvent;
 use Sabre\VObject\Reader;
 use Sabre\VObject\Recur\EventIterator;
 
-class Backend {
+class EventListener implements IEventListener {
 
 	/** @var INotificationManager */
 	protected $notificationManager;
@@ -52,6 +57,28 @@ class Backend {
 	}
 
 	/**
+	 * @param Event $event
+	 * @throws \Sabre\VObject\Recur\MaxInstancesExceededException
+	 * @throws \Sabre\VObject\Recur\NoInstancesException
+	 */
+	public function handle(Event $event): void {
+		if (!($event instanceof CalendarObjectCreatedEvent)
+			&& !($event instanceof CalendarObjectUpdatedEvent)
+			&& !($event instanceof CalendarObjectDeletedEvent)) {
+			return;
+		}
+
+		$subject = Notifier::SUBJECT_OBJECT_ADD;
+		if ($event instanceof CalendarObjectUpdatedEvent) {
+			$subject = Notifier::SUBJECT_OBJECT_UPDATE;
+		} else if ($event instanceof CalendarObjectDeletedEvent) {
+			$subject = Notifier::SUBJECT_OBJECT_DELETE;
+		}
+
+		$this->onTouchCalendarObject($subject, $event->getCalendarData(), $event->getShares(), $event->getObjectData());
+	}
+
+	/**
 	 * Creates activities when a calendar object was created/updated/deleted
 	 *
 	 * @param string $action
@@ -61,7 +88,7 @@ class Backend {
 	 * @throws \Sabre\VObject\Recur\MaxInstancesExceededException
 	 * @throws \Sabre\VObject\Recur\NoInstancesException
 	 */
-	public function onTouchCalendarObject(string $action, array $calendarData, array $shares, array $objectData) {
+	public function onTouchCalendarObject(string $action, array $calendarData, array $shares, array $objectData): void {
 		if (!isset($calendarData['principaluri'])) {
 			return;
 		}
