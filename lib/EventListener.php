@@ -129,8 +129,7 @@ class EventListener implements IEventListener {
 				'hasTime' => $hasTime,
 			]);
 
-		$users = $this->getUsersForShares($shares);
-		$users[] = $owner;
+		$users = $this->getUsersForShares($shares, $owner);
 
 		foreach ($users as $user) {
 			if ($user === $currentUser) {
@@ -193,10 +192,12 @@ class EventListener implements IEventListener {
 	 * Get all users that have access to a given calendar
 	 *
 	 * @param array $shares
+	 * @param string $owner
 	 * @return string[]
 	 */
-	protected function getUsersForShares(array $shares): array {
-		$users = $groups = [];
+	protected function getUsersForShares(array $shares, string $owner): array {
+		$users = [$owner];
+		$groups = [];
 		foreach ($shares as $share) {
 			$prinical = explode('/', $share['{http://owncloud.org/ns}principal']);
 			if ($prinical[1] === 'users') {
