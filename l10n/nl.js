@@ -7,7 +7,7 @@ OC.L10N.register(
     "{actor} updated {event} in {calendar}" : "{actor} heeft {event} in {calendar} aangepast",
     "Busy" : "Bezig",
     "Personal" : "Persoonlijke",
-    "Notifications for calendar event updates" : "Meldingen voor aanpassingen van kalender gebeurtenis",
-    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Ontvang een melding als een gebeurtenis in een gedeelde kalender is toegevoegd, aangepast of verwijderd."
+    "Notifications for calendar event updates" : "Meldingen voor aanpassingen van agenda-afspraken",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Ontvang een melding als er een gebeurtenis in een gedeelde agenda is toegevoegd, aangepast of verwijderd."
 },
 "nplurals=2; plural=(n != 1);");
