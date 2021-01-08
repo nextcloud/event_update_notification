@@ -6,7 +6,7 @@
 	<summary>Receive a notification when an event in a shared calendar was added, modified or deleted.</summary>
 	<description><![CDATA[Receive a notification when an event in a shared calendar was added, modified or deleted.]]></description>
 
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 
@@ -27,6 +27,6 @@
 	<screenshot>https://github.com/nickv-nextcloud/event_update_notification/raw/master/docs/demo.png</screenshot>
 
 	<dependencies>
-		<nextcloud min-version="20" max-version="20" />
+		<nextcloud min-version="20" max-version="21" />
 	</dependencies>
 </info>
