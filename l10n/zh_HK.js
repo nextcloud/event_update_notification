@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Calendar event update notifications" : "日曆活動項目更新通知",
     "{actor} created {event} in {calendar}" : "{actor}在{calendar}日曆中新增了{event}活動項目",
-    "{actor} deleted {event} from {calendar}" : "{actor}在{calendar}日曆中刪除了{event}活動項目",
+    "{actor} deleted {event} from {calendar}" : "{actor} 從 {calendar} 日曆中刪除了 {event} 活動項目",
     "{actor} updated {event} in {calendar}" : "{actor}在{calendar}日曆中變更了{event}活動項目",
     "Busy" : "忙碌中",
     "Personal" : "個人",
