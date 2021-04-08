@@ -1,8 +1,8 @@
 { "translations": {
     "Calendar event update notifications" : "Notìficas de agiornamentu de is eventos de su calendàriu",
-    "{actor} created {event} in {calendar}" : "{partetzipante} at creadu {eventu} in su {calendàriu}",
-    "{actor} deleted {event} from {calendar}" : "{partetzipante} at cantzelladu {eventu} dae su {calendàriu}",
-    "{actor} updated {event} in {calendar}" : "{partetzipante} at agiornadu {eventu} in su {calendàriu}",
+    "{actor} created {event} in {calendar}" : "{actor} at creadu {event} in su {calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor} at cantzelladu {event} dae su {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} at agiornadu {event} in su {calendar}",
     "Busy" : "Faghende cosa",
     "Personal" : "Personale",
     "Notifications for calendar event updates" : "Notìficas pro agiornamentos a un'eventu de su calendàriu",
