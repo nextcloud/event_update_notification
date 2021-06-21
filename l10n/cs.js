@@ -1,10 +1,10 @@
 OC.L10N.register(
     "event_update_notification",
     {
-    "Calendar event update notifications" : "Upozorňování na změny událostí v kalendáři",
+    "Calendar event update notifications" : "Upozorňování na aktualizace událostí v kalendáři",
     "{actor} created {event} in {calendar}" : "{actor} vytvořil(a) {event} v {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} vymazal(a) {event} z {calendar}",
-    "{actor} updated {event} in {calendar}" : "{actor} změnil(a) {event} v {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} aktualizoval(a) {event} v {calendar}",
     "Busy" : "Zaneprázdněn(a)",
     "Personal" : "Osobní",
     "Notifications for calendar event updates" : "Upozorňování na aktualizace událostí v kalendáři",
