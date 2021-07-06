@@ -27,6 +27,7 @@ namespace OCA\EventUpdateNotification;
 use OCA\DAV\CalDAV\CalDavBackend;
 use OCA\DAV\Events\CalendarObjectCreatedEvent;
 use OCA\DAV\Events\CalendarObjectDeletedEvent;
+use OCA\DAV\Events\CalendarObjectMovedToTrashEvent;
 use OCA\DAV\Events\CalendarObjectUpdatedEvent;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -64,14 +65,20 @@ class EventListener implements IEventListener {
 	public function handle(Event $event): void {
 		if (!($event instanceof CalendarObjectCreatedEvent)
 			&& !($event instanceof CalendarObjectUpdatedEvent)
-			&& !($event instanceof CalendarObjectDeletedEvent)) {
+			&& !($event instanceof CalendarObjectDeletedEvent)
+			&& !($event instanceof CalendarObjectMovedToTrashEvent)) {
 			return;
 		}
 
-		$subject = Notifier::SUBJECT_OBJECT_ADD;
-		if ($event instanceof CalendarObjectUpdatedEvent) {
+		if ($event instanceof CalendarObjectCreatedEvent) {
+			$subject = Notifier::SUBJECT_OBJECT_ADD;
+		} else if ($event instanceof CalendarObjectUpdatedEvent) {
 			$subject = Notifier::SUBJECT_OBJECT_UPDATE;
-		} else if ($event instanceof CalendarObjectDeletedEvent) {
+		} else {
+			if ($event instanceof CalendarObjectDeletedEvent
+				&& substr($event->getObjectData()['uri'], -12) === '-deleted.ics') {
+				return;
+			}
 			$subject = Notifier::SUBJECT_OBJECT_DELETE;
 		}
 

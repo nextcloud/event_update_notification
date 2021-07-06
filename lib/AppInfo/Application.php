@@ -25,6 +25,7 @@ namespace OCA\EventUpdateNotification\AppInfo;
 
 use OCA\DAV\Events\CalendarObjectCreatedEvent;
 use OCA\DAV\Events\CalendarObjectDeletedEvent;
+use OCA\DAV\Events\CalendarObjectMovedToTrashEvent;
 use OCA\DAV\Events\CalendarObjectUpdatedEvent;
 use OCA\EventUpdateNotification\EventListener;
 use OCA\EventUpdateNotification\Notifier;
@@ -43,6 +44,7 @@ class Application extends App implements IBootstrap {
 		$context->registerEventListener(CalendarObjectCreatedEvent::class, EventListener::class);
 		$context->registerEventListener(CalendarObjectUpdatedEvent::class, EventListener::class);
 		$context->registerEventListener(CalendarObjectDeletedEvent::class, EventListener::class);
+		$context->registerEventListener(CalendarObjectMovedToTrashEvent::class, EventListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
