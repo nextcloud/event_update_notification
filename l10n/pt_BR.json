@@ -6,6 +6,6 @@
     "Busy" : "Ocupado",
     "Personal" : "Pessoal",
     "Notifications for calendar event updates" : "Notificações para atualizações no calendário de eventos",
-    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Receba uma notificação quando um evento em um calendário compartilhado for adicionado, modificado ou excluído."
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Receba uma notificação quando um evento em um calendário compartilhado for adicionado, modificado ou apagado."
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
