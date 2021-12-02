@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.4.0 – 2021-07-06
+### Changed
+- Support for Nextcloud 23
+
 ## 1.3.0 – 2021-07-06
 ### Changed
 - Support for Nextcloud 22 with calendar trashbin
