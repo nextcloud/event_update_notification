@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
@@ -72,7 +73,7 @@ class EventListener implements IEventListener {
 
 		if ($event instanceof CalendarObjectCreatedEvent) {
 			$subject = Notifier::SUBJECT_OBJECT_ADD;
-		} else if ($event instanceof CalendarObjectUpdatedEvent) {
+		} elseif ($event instanceof CalendarObjectUpdatedEvent) {
 			$subject = Notifier::SUBJECT_OBJECT_UPDATE;
 		} else {
 			if ($event instanceof CalendarObjectDeletedEvent
@@ -118,7 +119,7 @@ class EventListener implements IEventListener {
 
 		$classification = $objectData['classification'] ?? CalDavBackend::CLASSIFICATION_PUBLIC;
 		$action .= '_' . $object['type'];
-		list ($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
+		list($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
 		$now = new \DateTime();
 
 		if ($dateTime < $now) {
@@ -177,7 +178,7 @@ class EventListener implements IEventListener {
 	protected function getObjectNameAndType(array $objectData) {
 		$vObject = Reader::read($objectData['calendardata']);
 		$component = $componentType = null;
-		foreach($vObject->getComponents() as $component) {
+		foreach ($vObject->getComponents() as $component) {
 			if (\in_array($component->name, ['VEVENT', 'VTODO'])) {
 				$componentType = $component->name;
 				break;
@@ -209,7 +210,7 @@ class EventListener implements IEventListener {
 			$prinical = explode('/', $share['{http://owncloud.org/ns}principal']);
 			if ($prinical[1] === 'users') {
 				$users[] = $prinical[2];
-			} else if ($prinical[1] === 'groups') {
+			} elseif ($prinical[1] === 'groups') {
 				$groups[] = $prinical[2];
 			}
 		}

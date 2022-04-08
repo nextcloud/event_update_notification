@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
@@ -38,10 +39,9 @@ use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 
 class Notifier implements INotifier {
-
-	const SUBJECT_OBJECT_ADD = 'object_add';
-	const SUBJECT_OBJECT_UPDATE = 'object_update';
-	const SUBJECT_OBJECT_DELETE = 'object_delete';
+	public const SUBJECT_OBJECT_ADD = 'object_add';
+	public const SUBJECT_OBJECT_UPDATE = 'object_update';
+	public const SUBJECT_OBJECT_DELETE = 'object_delete';
 
 	/** @var IFactory */
 	protected $languageFactory;
@@ -113,9 +113,9 @@ class Notifier implements INotifier {
 
 		if ($notification->getSubject() === self::SUBJECT_OBJECT_ADD . '_event') {
 			$subject = $this->l->t('{actor} created {event} in {calendar}');
-		} else if ($notification->getSubject() === self::SUBJECT_OBJECT_DELETE . '_event') {
+		} elseif ($notification->getSubject() === self::SUBJECT_OBJECT_DELETE . '_event') {
 			$subject = $this->l->t('{actor} deleted {event} from {calendar}');
-		} else if ($notification->getSubject() === self::SUBJECT_OBJECT_UPDATE . '_event') {
+		} elseif ($notification->getSubject() === self::SUBJECT_OBJECT_UPDATE . '_event') {
 			$subject = $this->l->t('{actor} updated {event} in {calendar}');
 		} else {
 			throw new AlreadyProcessedException();
@@ -182,7 +182,7 @@ class Notifier implements INotifier {
 	}
 
 	protected function generateObjectParameter(array $eventData): array {
-		if (!\is_array($eventData) || !isset($eventData['id'], $eventData['name'])) {
+		if (!isset($eventData['id'], $eventData['name'])) {
 			throw new \InvalidArgumentException(' Invalid data');
 		}
 
