@@ -182,7 +182,7 @@ class Notifier implements INotifier {
 	}
 
 	protected function generateObjectParameter(array $eventData): array {
-		if (!\is_array($eventData) || !isset($eventData['id'], $eventData['name'])) {
+		if (!isset($eventData['id'], $eventData['name'])) {
 			throw new \InvalidArgumentException(' Invalid data');
 		}
 

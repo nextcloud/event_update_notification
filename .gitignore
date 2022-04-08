@@ -52,3 +52,5 @@ nbproject
 
 # Nextcloud
 /build
+/vendor
+/.php-cs-fixer.cache
