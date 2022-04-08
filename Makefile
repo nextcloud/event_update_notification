@@ -31,6 +31,7 @@ appstore: clean
 	--exclude=/translationfiles \
 	--exclude=/.tx \
 	--exclude=/tests \
+	--exclude=/vendor \
 	--exclude=/.git \
 	--exclude=/screenshots \
 	--exclude=/.github \
@@ -40,9 +41,10 @@ appstore: clean
 	--exclude=/README.md \
 	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
-	--exclude=/.scrutinizer.yml \
-	--exclude=/.travis.yml \
-	--exclude=/.drone.yml \
+	--exclude=/.php-cs-fixer.cache \
+	--exclude=/.php-cs-fixer.dist.php \
+	--exclude=/composer.json \
+	--exclude=/composer.lock \
 	--exclude=/Makefile \
 	$(project_dir)/ $(sign_dir)/$(app_name)
 	tar -czf $(build_dir)/$(app_name).tar.gz \
