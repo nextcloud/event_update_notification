@@ -10,4 +10,4 @@ OC.L10N.register(
     "Notifications for calendar event updates" : "Notificações para atualizações dos eventos do calendário",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Receba uma notificação quando um evento num calendário partilhado foi adicionado, modificado ou eliminado."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

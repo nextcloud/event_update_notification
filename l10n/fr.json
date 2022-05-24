@@ -7,5 +7,5 @@
     "Personal" : "Personnel",
     "Notifications for calendar event updates" : "Notifications lors des mises à jour d'évènements dans l'agenda",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Soyez notifiés lorsqu'un évènement est ajouté, modifié ou supprimé dans un agenda partagé."
-},"pluralForm" :"nplurals=2; plural=(n > 1);"
+},"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
