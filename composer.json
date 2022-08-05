@@ -8,11 +8,9 @@
 	"name": "nextcloud/event_update_notification",
 	"description": "event update notification",
 	"license": "AGPL",
-	"require": {
-	},
 	"require-dev": {
 		"nextcloud/coding-standard": "^1.0.0",
-		"christophwurst/nextcloud": "dev-master@dev"
+		"christophwurst/nextcloud": "dev-master"
 	},
 	"config": {
 		"optimize-autoloader": true,

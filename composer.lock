@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf3d1fc9dab35ae3b9fb85a6e8e0511c",
+    "content-hash": "c4187f6830a0408273b5c4845a8945ab",
     "packages": [],
     "packages-dev": [
         {
@@ -13,17 +13,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ChristophWurst/nextcloud_composer.git",
-                "reference": "6aec9c3521c554466bb7d92559782cf61f391c79"
+                "reference": "cf53ad1019a30bbab39a969fd6c85c881adef4b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/6aec9c3521c554466bb7d92559782cf61f391c79",
-                "reference": "6aec9c3521c554466bb7d92559782cf61f391c79",
+                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/cf53ad1019a30bbab39a969fd6c85c881adef4b0",
+                "reference": "cf53ad1019a30bbab39a969fd6c85c881adef4b0",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ~8.0 || ~8.1",
-                "psr/container": "^1.0",
+                "psr/container": "^1.1.1",
                 "psr/event-dispatcher": "^1.0",
                 "psr/log": "^1.1"
             },
@@ -31,7 +31,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "24.0.0-dev"
+                    "dev-master": "25.0.0-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -49,7 +49,7 @@
                 "issues": "https://github.com/ChristophWurst/nextcloud_composer/issues",
                 "source": "https://github.com/ChristophWurst/nextcloud_composer/tree/master"
             },
-            "time": "2022-02-07T08:09:24+00:00"
+            "time": "2022-08-03T02:19:37+00:00"
         },
         {
             "name": "composer/pcre",
@@ -2199,5 +2199,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
