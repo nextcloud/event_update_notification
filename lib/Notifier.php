@@ -26,6 +26,7 @@ declare(strict_types=1);
 namespace OCA\EventUpdateNotification;
 
 use OCA\DAV\CalDAV\CalDavBackend;
+use OCP\App\IAppManager;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IDateTimeFormatter;
 use OCP\IL10N;
@@ -55,6 +56,8 @@ class Notifier implements INotifier {
 	protected $userManager;
 	/** @var INotificationManager */
 	protected $notificationManager;
+	/** @var IAppManager */
+	protected $appManager;
 	/** @var IDateTimeFormatter */
 	protected $dateTimeFormatter;
 
@@ -66,12 +69,14 @@ class Notifier implements INotifier {
 								IURLGenerator $url,
 								IUserManager $userManager,
 								INotificationManager $notificationManager,
+								IAppManager $appManager,
 								IDateTimeFormatter $dateTimeFormatter) {
 		$this->languageFactory = $languageFactory;
 		$this->timeFactory = $timeFactory;
 		$this->url = $url;
 		$this->userManager = $userManager;
 		$this->notificationManager = $notificationManager;
+		$this->appManager = $appManager;
 		$this->dateTimeFormatter = $dateTimeFormatter;
 	}
 
@@ -191,11 +196,32 @@ class Notifier implements INotifier {
 			$eventData['name'] = $this->l->t('Busy');
 		}
 
-		return [
+		$params = [
 			'type' => 'calendar-event',
 			'id' => $eventData['id'],
 			'name' => $eventData['name'],
 		];
+
+		if (isset($eventData['link']) && is_array($eventData['link']) && $this->appManager->isEnabledForUser('calendar')) {
+			try {
+				// The calendar app needs to be manually loaded for the routes to be loaded
+				\OC_App::loadApp('calendar');
+				$linkData = $eventData['link'];
+				$objectId = base64_encode('/remote.php/dav/calendars/' . $linkData['owner'] . '/' . $linkData['calendar_uri'] . '/' . $linkData['object_uri']);
+				$link = [
+					'view' => 'dayGridMonth',
+					'timeRange' => 'now',
+					'mode' => 'sidebar',
+					'objectId' => $objectId,
+					'recurrenceId' => 'next'
+				];
+				$params['link'] = $this->url->linkToRouteAbsolute('calendar.view.indexview.timerange.edit', $link);
+			} catch (\Exception $error) {
+				// Do nothing
+			}
+		}
+
+		return $params;
 	}
 
 	protected function generateCalendarParameter(array $data): array {
