@@ -42,7 +42,6 @@ use Sabre\VObject\Reader;
 use Sabre\VObject\Recur\EventIterator;
 
 class EventListener implements IEventListener {
-
 	/** @var INotificationManager */
 	protected $notificationManager;
 

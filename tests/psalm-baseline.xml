@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+  <file src="lib/AppInfo/Application.php">
+    <UndefinedClass occurrences="4">
+      <code>CalendarObjectCreatedEvent</code>
+      <code>CalendarObjectDeletedEvent</code>
+      <code>CalendarObjectMovedToTrashEvent</code>
+      <code>CalendarObjectUpdatedEvent</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/EventListener.php">
+    <UndefinedClass occurrences="6">
+      <code>CalDavBackend</code>
+      <code>CalDavBackend</code>
+      <code>CalDavBackend</code>
+      <code>CalendarObjectCreatedEvent</code>
+      <code>Reader</code>
+      <code>\Sabre\VObject\Reader</code>
+    </UndefinedClass>
+    <UndefinedDocblockClass occurrences="6">
+      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
+      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
+      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
+      <code>\Sabre\VObject\Recur\NoInstancesException</code>
+      <code>\Sabre\VObject\Recur\NoInstancesException</code>
+      <code>\Sabre\VObject\Recur\NoInstancesException</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="lib/Notifier.php">
+    <UndefinedClass occurrences="2">
+      <code>CalDavBackend</code>
+      <code>CalDavBackend</code>
+    </UndefinedClass>
+  </file>
+</files>

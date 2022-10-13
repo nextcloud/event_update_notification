@@ -1,27 +1,33 @@
 {
 	"autoload-dev": {
 		"psr-4": {
-			"OCP\\": "vendor/christophwurst/nextcloud/OCP",
+			"OCP\\": "vendor/nextcloud/ocp/OCP",
 			"OCA\\EventUpdateNotification\\": "lib/"
 		}
 	},
 	"name": "nextcloud/event_update_notification",
 	"description": "event update notification",
 	"license": "AGPL",
-	"require-dev": {
-		"nextcloud/coding-standard": "^1.0.0",
-		"christophwurst/nextcloud": "dev-master"
-	},
 	"config": {
-		"optimize-autoloader": true,
 		"classmap-authoritative": true,
+		"optimize-autoloader": true,
 		"platform": {
 			"php": "7.4"
-		}
+		},
+		"sort-packages": true
 	},
 	"scripts": {
 		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './build/*' -print0 | xargs -0 -n1 php -l",
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
-		"cs:fix": "php-cs-fixer fix"
+		"cs:fix": "php-cs-fixer fix",
+		"psalm": "psalm --threads=1",
+		"psalm:update-baseline": "psalm --threads=1 --update-baseline --set-baseline=tests/psalm-baseline.xml",
+		"psalm:clear": "psalm --clear-cache && psalm --clear-global-cache",
+		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType"
+	},
+	"require-dev": {
+		"nextcloud/coding-standard": "^1.0.0",
+		"nextcloud/ocp": "dev-stable23",
+		"vimeo/psalm": "^4.29"
 	}
 }
