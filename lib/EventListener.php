@@ -163,6 +163,11 @@ class EventListener implements IEventListener {
 							'id' => $object['id'],
 							'name' => $isClassified ? 'Busy' : $object['name'],
 							'classified' => $isClassified,
+							'link' => [
+								'owner' => $owner,
+								'calendar_uri' => $calendarData['uri'],
+								'object_uri' => $objectData['uri'],
+							],
 						],
 					]
 				);

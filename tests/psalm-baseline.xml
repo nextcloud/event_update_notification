@@ -27,9 +27,10 @@
     </UndefinedDocblockClass>
   </file>
   <file src="lib/Notifier.php">
-    <UndefinedClass occurrences="2">
+    <UndefinedClass occurrences="3">
       <code>CalDavBackend</code>
       <code>CalDavBackend</code>
+      <code>\OC_App</code>
     </UndefinedClass>
   </file>
 </files>

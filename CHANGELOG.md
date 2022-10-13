@@ -2,9 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ## 2.0.0 – 2022-10-13
+### Added
+- 🌏 Make events clickable if calendar is installed
+
 ### Changed
-- Add support for Nextcloud 25
-- Drop support for Nextcloud 22
+- ✨ Add support for Nextcloud 25
+- 🏚️ Drop support for Nextcloud 22
 
 ## 1.5.0 – 2022-04-08
 ### Changed
