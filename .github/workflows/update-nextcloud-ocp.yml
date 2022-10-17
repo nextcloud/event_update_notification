@@ -18,6 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         branches: ["master"]
+        target: ["stable23"]
 
     name: update-nextcloud-ocp-${{ matrix.branches }}
 
@@ -38,7 +39,7 @@ jobs:
         run: composer install
 
       - name: Composer update nextcloud/ocp
-        run: composer require --dev nextcloud/ocp:dev-${{ matrix.branches }}
+        run: composer require --dev nextcloud/ocp:dev-${{ matrix.target }}
         continue-on-error: true
 
       - name: Reset checkout dirs
