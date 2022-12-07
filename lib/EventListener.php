@@ -41,6 +41,9 @@ use Sabre\VObject\Component\VEvent;
 use Sabre\VObject\Reader;
 use Sabre\VObject\Recur\EventIterator;
 
+/**
+ * @template-implements IEventListener<Event>
+ */
 class EventListener implements IEventListener {
 	/** @var INotificationManager */
 	protected $notificationManager;
