@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.1.0 – 2023-03-27
+### Added
+- ✨ Add support for Nextcloud 26
+- 🏚️ Drop support for Nextcloud 23
+
 ## 2.0.0 – 2022-10-13
 ### Added
 - 🌏 Make events clickable if calendar is installed
