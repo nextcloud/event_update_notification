@@ -65,12 +65,12 @@ class Notifier implements INotifier {
 	protected $userDisplayNames = [];
 
 	public function __construct(IFactory $languageFactory,
-								ITimeFactory $timeFactory,
-								IURLGenerator $url,
-								IUserManager $userManager,
-								INotificationManager $notificationManager,
-								IAppManager $appManager,
-								IDateTimeFormatter $dateTimeFormatter) {
+		ITimeFactory $timeFactory,
+		IURLGenerator $url,
+		IUserManager $userManager,
+		INotificationManager $notificationManager,
+		IAppManager $appManager,
+		IDateTimeFormatter $dateTimeFormatter) {
 		$this->languageFactory = $languageFactory;
 		$this->timeFactory = $timeFactory;
 		$this->url = $url;
