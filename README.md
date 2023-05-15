@@ -6,4 +6,4 @@
 
 🗑 Event has been deleted
 
-![](https://github.com/nickv-nextcloud/event_update_notification/raw/master/docs/demo.png)
+![](https://github.com/nickv-nextcloud/event_update_notification/raw/main/docs/demo.png)

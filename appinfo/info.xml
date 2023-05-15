@@ -24,7 +24,7 @@
 	<bugs>https://github.com/nickv-nextcloud/event_update_notification/issues</bugs>
 	<repository>https://github.com/nickv-nextcloud/event_update_notification.git</repository>
 
-	<screenshot>https://github.com/nickv-nextcloud/event_update_notification/raw/master/docs/demo.png</screenshot>
+	<screenshot>https://github.com/nickv-nextcloud/event_update_notification/raw/main/docs/demo.png</screenshot>
 
 	<dependencies>
 		<nextcloud min-version="25" max-version="27" />
