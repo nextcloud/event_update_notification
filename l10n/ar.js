@@ -1,7 +1,13 @@
 OC.L10N.register(
     "event_update_notification",
     {
+    "Calendar event update notifications" : "إشعارات عن تحديث في أحداث التقويم",
+    "{actor} created {event} in {calendar}" : "{actor} أنشأ {event} في {calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor} حذف {event} من {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} عدّل {event} في {calendar}",
     "Busy" : "مشغول",
-    "Personal" : "شخصي"
+    "Personal" : "شخصي",
+    "Notifications for calendar event updates" : "إشعارات عن تحديث في أحداث التقويم",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "سستقبل إشعاراً عن إضافة أو تعديل أو حذف حدث في تقويم مشترك."
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");
