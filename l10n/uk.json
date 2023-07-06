@@ -1,8 +1,8 @@
 { "translations": {
     "Calendar event update notifications" : "Сповіщення про оновлення події в календарі",
-    "{actor} created {event} in {calendar}" : "{actor} створив {event} в {calendar}",
+    "{actor} created {event} in {calendar}" : "{actor} створив(-ла) {event} в {calendar}",
     "{actor} deleted {event} from {calendar}" : "{actor} вилучив {event} в {calendar}",
-    "{actor} updated {event} in {calendar}" : "{actor} оновив {event} в {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} оновив(-ла) {event} в {calendar}",
     "Busy" : "Зайнято",
     "Personal" : "Особисте",
     "Notifications for calendar event updates" : "Сповіщення про оновлення подій в календарі",
