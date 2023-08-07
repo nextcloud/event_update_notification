@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="lib/AppInfo/Application.php">
-    <UndefinedClass occurrences="4">
+    <UndefinedClass>
       <code>CalendarObjectCreatedEvent</code>
       <code>CalendarObjectDeletedEvent</code>
       <code>CalendarObjectMovedToTrashEvent</code>
@@ -9,7 +9,7 @@
     </UndefinedClass>
   </file>
   <file src="lib/EventListener.php">
-    <UndefinedClass occurrences="6">
+    <UndefinedClass>
       <code>CalDavBackend</code>
       <code>CalDavBackend</code>
       <code>CalDavBackend</code>
@@ -17,7 +17,7 @@
       <code>Reader</code>
       <code>\Sabre\VObject\Reader</code>
     </UndefinedClass>
-    <UndefinedDocblockClass occurrences="6">
+    <UndefinedDocblockClass>
       <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
       <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
       <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
@@ -27,7 +27,7 @@
     </UndefinedDocblockClass>
   </file>
   <file src="lib/Notifier.php">
-    <UndefinedClass occurrences="3">
+    <UndefinedClass>
       <code>CalDavBackend</code>
       <code>CalDavBackend</code>
       <code>\OC_App</code>

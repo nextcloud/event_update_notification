@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99152dd8232e088efc87612f6848caf8",
+    "content-hash": "5b84de858134ce374f5008cc9e883da9",
     "packages": [],
     "packages-dev": [
         {
@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "712a6be217b6f046095e8548cfb50dfbb11e43fe"
+                "reference": "45d3f259c6a80f838317e2f9467af55d9132f058"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/712a6be217b6f046095e8548cfb50dfbb11e43fe",
-                "reference": "712a6be217b6f046095e8548cfb50dfbb11e43fe",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/45d3f259c6a80f838317e2f9467af55d9132f058",
+                "reference": "45d3f259c6a80f838317e2f9467af55d9132f058",
                 "shasum": ""
             },
             "require": {
@@ -89,20 +89,20 @@
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
                 "source": "https://github.com/nextcloud-deps/ocp/tree/stable25"
             },
-            "time": "2023-07-12T00:44:30+00:00"
+            "time": "2023-08-04T00:37:16+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.17.0",
+            "version": "v3.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "f51b4aed90565c447136f1d015798f6f7c82490f"
+                "reference": "f6692934a6d1fe40fd8bc3339487490baa4a6700"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/f51b4aed90565c447136f1d015798f6f7c82490f",
-                "reference": "f51b4aed90565c447136f1d015798f6f7c82490f",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/f6692934a6d1fe40fd8bc3339487490baa4a6700",
+                "reference": "f6692934a6d1fe40fd8bc3339487490baa4a6700",
                 "shasum": ""
             },
             "require": {
@@ -139,9 +139,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.17.0"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.22.0"
             },
-            "time": "2023-05-22T20:00:38+00:00"
+            "time": "2023-07-16T23:08:49+00:00"
         },
         {
             "name": "psalm/phar",
