@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.0 – 2023-12-01
+### Added
+- ✨ Add support for Nextcloud 28
+- 🏚️ Drop support for Nextcloud 25
+
 ## 2.2.0 – 2023-05-15
 ### Added
 - ✨ Add support for Nextcloud 27

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b84de858134ce374f5008cc9e883da9",
+    "content-hash": "fc31a34eb4d0547035314f71daa3b4db",
     "packages": [],
     "packages-dev": [
         {
@@ -50,16 +50,16 @@
         },
         {
             "name": "nextcloud/ocp",
-            "version": "dev-stable25",
+            "version": "dev-stable26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "94192422c97feb772526ad46eeaf918a31c518d6"
+                "reference": "43bc0a0267d97b02966e0270e00e9d51192564af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/94192422c97feb772526ad46eeaf918a31c518d6",
-                "reference": "94192422c97feb772526ad46eeaf918a31c518d6",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/43bc0a0267d97b02966e0270e00e9d51192564af",
+                "reference": "43bc0a0267d97b02966e0270e00e9d51192564af",
                 "shasum": ""
             },
             "require": {
@@ -87,22 +87,22 @@
             "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
             "support": {
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
-                "source": "https://github.com/nextcloud-deps/ocp/tree/stable25"
+                "source": "https://github.com/nextcloud-deps/ocp/tree/stable26"
             },
-            "time": "2023-10-10T00:31:16+00:00"
+            "time": "2023-11-10T00:31:54+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.22.0",
+            "version": "v3.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "f6692934a6d1fe40fd8bc3339487490baa4a6700"
+                "reference": "4c063eff281b1e3a73c33c0d5c39e8e2b766464e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/f6692934a6d1fe40fd8bc3339487490baa4a6700",
-                "reference": "f6692934a6d1fe40fd8bc3339487490baa4a6700",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/4c063eff281b1e3a73c33c0d5c39e8e2b766464e",
+                "reference": "4c063eff281b1e3a73c33c0d5c39e8e2b766464e",
                 "shasum": ""
             },
             "require": {
@@ -139,9 +139,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.22.0"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.40.0"
             },
-            "time": "2023-07-16T23:08:49+00:00"
+            "time": "2023-11-26T09:26:25+00:00"
         },
         {
             "name": "psalm/phar",
@@ -337,7 +337,7 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.4"
+        "php": "8.0.2"
     },
     "plugin-api-version": "2.6.0"
 }
