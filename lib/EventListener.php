@@ -121,7 +121,7 @@ class EventListener implements IEventListener {
 
 		$classification = $objectData['classification'] ?? CalDavBackend::CLASSIFICATION_PUBLIC;
 		$action .= '_' . $object['type'];
-		list($dateTime, $hasTime) = $this->getNearestDateTime($objectData['calendardata']);
+		[$dateTime, $hasTime] = $this->getNearestDateTime($objectData['calendardata']);
 		$now = new \DateTime();
 
 		if ($dateTime < $now) {
