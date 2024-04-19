@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <psalm
-    errorLevel="5"
-    findUnusedBaselineEntry="false"
-    findUnusedCode="false"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-    errorBaseline="tests/psalm-baseline.xml"
+	errorLevel="4"
+	findUnusedBaselineEntry="false"
+	findUnusedCode="false"
+	phpVersion="8.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://getpsalm.org/schema/config"
+	xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+	errorBaseline="tests/psalm-baseline.xml"
 >
 	<projectFiles>
 		<directory name="lib" />
@@ -14,4 +15,7 @@
 			<directory name="vendor" />
 		</ignoreFiles>
 	</projectFiles>
+	<extraFiles>
+		<directory name="vendor" />
+	</extraFiles>
 </psalm>
