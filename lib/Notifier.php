@@ -61,7 +61,7 @@ class Notifier implements INotifier {
 	/** @var IDateTimeFormatter */
 	protected $dateTimeFormatter;
 
-	/** @var string[]  */
+	/** @var string[] */
 	protected $userDisplayNames = [];
 
 	public function __construct(IFactory $languageFactory,
