@@ -139,7 +139,7 @@ class EventListener implements IEventListener {
 				'hasTime' => $hasTime,
 			]);
 
-		$users = $this->getUsersForShares($shares, $owner);
+		$users = $this->getUsersForShares($shares, $owner, $calendarData['id']);
 
 		foreach ($users as $user) {
 			if ($user === $currentUser) {
@@ -210,7 +210,7 @@ class EventListener implements IEventListener {
 	 * @param string $owner
 	 * @return string[]
 	 */
-	protected function getUsersForShares(array $shares, string $owner): array {
+	protected function getUsersForShares(array $shares, string $owner, int $calendarId): array {
 		$users = [$owner];
 		$groups = [];
 		foreach ($shares as $share) {
@@ -222,18 +222,40 @@ class EventListener implements IEventListener {
 			}
 		}
 
+		$groupAddedUsers = false;
 		if (!empty($groups)) {
 			foreach ($groups as $gid) {
 				$group = $this->groupManager->get($gid);
 				if ($group instanceof IGroup) {
 					foreach ($group->getUsers() as $user) {
+						$groupAddedUsers = true;
 						$users[] = $user->getUID();
 					}
 				}
 			}
 		}
 
-		return array_unique($users);
+		$users = array_unique($users);
+
+		if (!$groupAddedUsers) {
+			return $users;
+		}
+
+		/** @var \OCA\DAV\CalDAV\Sharing\Service $service */
+		$service = \OCP\Server::get(\OCA\DAV\CalDAV\Sharing\Service::class);
+		$unshares = $service->getUnshares($calendarId);
+		$usersToRemove = [];
+		foreach ($unshares as $unshare) {
+
+			$prinical = explode('/', $unshare['principaluri']);
+			if ($prinical[1] === 'users') {
+				$usersToRemove[] = $prinical[2];
+			}
+		}
+
+		$users = array_diff($users, $usersToRemove);
+
+		return $users;
 	}
 
 	/**
