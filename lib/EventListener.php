@@ -131,7 +131,7 @@ class EventListener implements IEventListener {
 
 		$notification = $this->notificationManager->createNotification();
 		$notification->setApp('event_update_notification')
-			->setObject('calendar', (string) $calendarData['id'])
+			->setObject('calendar', (string)$calendarData['id'])
 			->setUser($currentUser)
 			->setDateTime($now)
 			->setMessage('event_update_notification', [
@@ -158,7 +158,7 @@ class EventListener implements IEventListener {
 					[
 						'actor' => $currentUser,
 						'calendar' => [
-							'id' => (int) $calendarData['id'],
+							'id' => (int)$calendarData['id'],
 							'uri' => $calendarData['uri'],
 							'name' => $calendarData['{DAV:}displayname'],
 						],
@@ -198,9 +198,9 @@ class EventListener implements IEventListener {
 		}
 
 		if ($componentType === 'VEVENT') {
-			return ['id' => (string) $component->UID, 'name' => (string) $component->SUMMARY, 'type' => 'event'];
+			return ['id' => (string)$component->UID, 'name' => (string)$component->SUMMARY, 'type' => 'event'];
 		}
-		return ['id' => (string) $component->UID, 'name' => (string) $component->SUMMARY, 'type' => 'todo', 'status' => (string) $component->STATUS];
+		return ['id' => (string)$component->UID, 'name' => (string)$component->SUMMARY, 'type' => 'todo', 'status' => (string)$component->STATUS];
 	}
 
 	/**
