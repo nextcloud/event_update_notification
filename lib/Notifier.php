@@ -44,40 +44,18 @@ class Notifier implements INotifier {
 	public const SUBJECT_OBJECT_UPDATE = 'object_update';
 	public const SUBJECT_OBJECT_DELETE = 'object_delete';
 
-	/** @var IFactory */
-	protected $languageFactory;
-	/** @var ITimeFactory */
-	protected $timeFactory;
-	/** @var IL10N */
-	protected $l;
-	/** @var IURLGenerator */
-	protected $url;
-	/** @var IUserManager */
-	protected $userManager;
-	/** @var INotificationManager */
-	protected $notificationManager;
-	/** @var IAppManager */
-	protected $appManager;
-	/** @var IDateTimeFormatter */
-	protected $dateTimeFormatter;
-
 	/** @var string[] */
-	protected $userDisplayNames = [];
+	protected array $userDisplayNames = [];
 
-	public function __construct(IFactory $languageFactory,
-		ITimeFactory $timeFactory,
-		IURLGenerator $url,
-		IUserManager $userManager,
-		INotificationManager $notificationManager,
-		IAppManager $appManager,
-		IDateTimeFormatter $dateTimeFormatter) {
-		$this->languageFactory = $languageFactory;
-		$this->timeFactory = $timeFactory;
-		$this->url = $url;
-		$this->userManager = $userManager;
-		$this->notificationManager = $notificationManager;
-		$this->appManager = $appManager;
-		$this->dateTimeFormatter = $dateTimeFormatter;
+	public function __construct(
+		protected IFactory $languageFactory,
+		protected ITimeFactory $timeFactory,
+		protected IURLGenerator $url,
+		protected IUserManager $userManager,
+		protected INotificationManager $notificationManager,
+		protected IAppManager $appManager,
+		protected IDateTimeFormatter $dateTimeFormatter,
+	) {
 	}
 
 	/**
@@ -91,7 +69,7 @@ class Notifier implements INotifier {
 	}
 
 	/**
-	 * Human readable name describing the notifier
+	 * Human-readable name describing the notifier
 	 *
 	 * @return string
 	 * @since 17.0.0

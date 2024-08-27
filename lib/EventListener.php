@@ -45,19 +45,11 @@ use Sabre\VObject\Recur\EventIterator;
  * @template-implements IEventListener<Event>
  */
 class EventListener implements IEventListener {
-	/** @var INotificationManager */
-	protected $notificationManager;
-
-	/** @var IGroupManager */
-	protected $groupManager;
-
-	/** @var IUserSession */
-	protected $userSession;
-
-	public function __construct(INotificationManager $notificationManager, IGroupManager $groupManager, IUserSession $userSession) {
-		$this->notificationManager = $notificationManager;
-		$this->groupManager = $groupManager;
-		$this->userSession = $userSession;
+	public function __construct(
+		protected INotificationManager $notificationManager,
+		protected IGroupManager $groupManager,
+		protected IUserSession $userSession,
+	) {
 	}
 
 	/**
