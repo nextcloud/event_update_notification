@@ -38,6 +38,7 @@ use OCP\Notification\AlreadyProcessedException;
 use OCP\Notification\IManager as INotificationManager;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
+use OCP\Notification\UnknownNotificationException;
 
 class Notifier implements INotifier {
 	public const SUBJECT_OBJECT_ADD = 'object_add';
@@ -49,6 +50,7 @@ class Notifier implements INotifier {
 
 	public function __construct(
 		protected IFactory $languageFactory,
+		protected IL10N $l,
 		protected ITimeFactory $timeFactory,
 		protected IURLGenerator $url,
 		protected IUserManager $userManager,
@@ -82,12 +84,12 @@ class Notifier implements INotifier {
 	 * @param INotification $notification
 	 * @param string $languageCode The code of the language that should be used to prepare the notification
 	 * @return INotification
-	 * @throws \InvalidArgumentException When the notification was not prepared by a notifier
+	 * @throws UnknownNotificationException When the notification was not prepared by a notifier
 	 * @since 9.0.0
 	 */
 	public function prepare(INotification $notification, string $languageCode): INotification {
 		if ($notification->getApp() !== 'event_update_notification') {
-			throw new \InvalidArgumentException('Invalid app');
+			throw new UnknownNotificationException('Invalid app');
 		}
 
 		$this->l = $this->languageFactory->get('event_update_notification', $languageCode);
@@ -161,12 +163,12 @@ class Notifier implements INotifier {
 				];
 		}
 
-		throw new \InvalidArgumentException('Invalid subject');
+		throw new UnknownNotificationException('Invalid subject');
 	}
 
 	protected function generateObjectParameter(array $eventData): array {
 		if (!isset($eventData['id'], $eventData['name'])) {
-			throw new \InvalidArgumentException(' Invalid data');
+			throw new UnknownNotificationException(' Invalid data');
 		}
 
 		if (!empty($eventData['classified'])) {
@@ -183,7 +185,7 @@ class Notifier implements INotifier {
 		if (isset($eventData['link']) && is_array($eventData['link']) && $this->appManager->isEnabledForUser('calendar')) {
 			try {
 				// The calendar app needs to be manually loaded for the routes to be loaded
-				\OC_App::loadApp('calendar');
+				$this->appManager->loadApp('calendar');
 				$linkData = $eventData['link'];
 				$objectId = base64_encode('/remote.php/dav/calendars/' . $linkData['owner'] . '/' . $linkData['calendar_uri'] . '/' . $linkData['object_uri']);
 				$link = [
@@ -194,7 +196,7 @@ class Notifier implements INotifier {
 					'recurrenceId' => 'next'
 				];
 				$params['link'] = $this->url->linkToRouteAbsolute('calendar.view.indexview.timerange.edit', $link);
-			} catch (\Exception $error) {
+			} catch (\Exception) {
 				// Do nothing
 			}
 		}
