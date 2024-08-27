@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "192d779330ff3540bc9df04c5fd7b8aa",
+    "content-hash": "7c4d5e253b9f29f8328e254c1c6bfab4",
     "packages": [],
     "packages-dev": [
         {
@@ -50,16 +50,16 @@
         },
         {
             "name": "nextcloud/ocp",
-            "version": "dev-stable28",
+            "version": "dev-stable30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "bfdd4dcddff043a016cf0cf937018c70618b8a01"
+                "reference": "2a005250064759f206aa1b5a1ee000dcd808ef5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/bfdd4dcddff043a016cf0cf937018c70618b8a01",
-                "reference": "bfdd4dcddff043a016cf0cf937018c70618b8a01",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/2a005250064759f206aa1b5a1ee000dcd808ef5b",
+                "reference": "2a005250064759f206aa1b5a1ee000dcd808ef5b",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-stable28": "28.0.0-dev"
+                    "dev-stable30": "30.0.0-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -88,9 +88,9 @@
             "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
             "support": {
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
-                "source": "https://github.com/nextcloud-deps/ocp/tree/stable28"
+                "source": "https://github.com/nextcloud-deps/ocp/tree/stable30"
             },
-            "time": "2024-07-26T00:37:14+00:00"
+            "time": "2024-08-14T08:51:38+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
@@ -391,7 +391,7 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.0.2"
+        "php": "8.1"
     },
     "plugin-api-version": "2.6.0"
 }
