@@ -2,25 +2,8 @@
 
 declare(strict_types=1);
 /**
- * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
- *
- * @author Joas Schilling <coding@schilljs.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\EventUpdateNotification;
@@ -38,46 +21,26 @@ use OCP\Notification\AlreadyProcessedException;
 use OCP\Notification\IManager as INotificationManager;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
+use OCP\Notification\UnknownNotificationException;
 
 class Notifier implements INotifier {
 	public const SUBJECT_OBJECT_ADD = 'object_add';
 	public const SUBJECT_OBJECT_UPDATE = 'object_update';
 	public const SUBJECT_OBJECT_DELETE = 'object_delete';
 
-	/** @var IFactory */
-	protected $languageFactory;
-	/** @var ITimeFactory */
-	protected $timeFactory;
-	/** @var IL10N */
-	protected $l;
-	/** @var IURLGenerator */
-	protected $url;
-	/** @var IUserManager */
-	protected $userManager;
-	/** @var INotificationManager */
-	protected $notificationManager;
-	/** @var IAppManager */
-	protected $appManager;
-	/** @var IDateTimeFormatter */
-	protected $dateTimeFormatter;
-
 	/** @var string[] */
-	protected $userDisplayNames = [];
+	protected array $userDisplayNames = [];
 
-	public function __construct(IFactory $languageFactory,
-		ITimeFactory $timeFactory,
-		IURLGenerator $url,
-		IUserManager $userManager,
-		INotificationManager $notificationManager,
-		IAppManager $appManager,
-		IDateTimeFormatter $dateTimeFormatter) {
-		$this->languageFactory = $languageFactory;
-		$this->timeFactory = $timeFactory;
-		$this->url = $url;
-		$this->userManager = $userManager;
-		$this->notificationManager = $notificationManager;
-		$this->appManager = $appManager;
-		$this->dateTimeFormatter = $dateTimeFormatter;
+	public function __construct(
+		protected IFactory $languageFactory,
+		protected IL10N $l,
+		protected ITimeFactory $timeFactory,
+		protected IURLGenerator $url,
+		protected IUserManager $userManager,
+		protected INotificationManager $notificationManager,
+		protected IAppManager $appManager,
+		protected IDateTimeFormatter $dateTimeFormatter,
+	) {
 	}
 
 	/**
@@ -91,7 +54,7 @@ class Notifier implements INotifier {
 	}
 
 	/**
-	 * Human readable name describing the notifier
+	 * Human-readable name describing the notifier
 	 *
 	 * @return string
 	 * @since 17.0.0
@@ -104,12 +67,12 @@ class Notifier implements INotifier {
 	 * @param INotification $notification
 	 * @param string $languageCode The code of the language that should be used to prepare the notification
 	 * @return INotification
-	 * @throws \InvalidArgumentException When the notification was not prepared by a notifier
+	 * @throws UnknownNotificationException When the notification was not prepared by a notifier
 	 * @since 9.0.0
 	 */
 	public function prepare(INotification $notification, string $languageCode): INotification {
 		if ($notification->getApp() !== 'event_update_notification') {
-			throw new \InvalidArgumentException('Invalid app');
+			throw new UnknownNotificationException('Invalid app');
 		}
 
 		$this->l = $this->languageFactory->get('event_update_notification', $languageCode);
@@ -183,12 +146,12 @@ class Notifier implements INotifier {
 				];
 		}
 
-		throw new \InvalidArgumentException('Invalid subject');
+		throw new UnknownNotificationException('Invalid subject');
 	}
 
 	protected function generateObjectParameter(array $eventData): array {
 		if (!isset($eventData['id'], $eventData['name'])) {
-			throw new \InvalidArgumentException(' Invalid data');
+			throw new UnknownNotificationException(' Invalid data');
 		}
 
 		if (!empty($eventData['classified'])) {
@@ -205,7 +168,7 @@ class Notifier implements INotifier {
 		if (isset($eventData['link']) && is_array($eventData['link']) && $this->appManager->isEnabledForUser('calendar')) {
 			try {
 				// The calendar app needs to be manually loaded for the routes to be loaded
-				\OC_App::loadApp('calendar');
+				$this->appManager->loadApp('calendar');
 				$linkData = $eventData['link'];
 				$objectId = base64_encode('/remote.php/dav/calendars/' . $linkData['owner'] . '/' . $linkData['calendar_uri'] . '/' . $linkData['object_uri']);
 				$link = [
@@ -216,7 +179,7 @@ class Notifier implements INotifier {
 					'recurrenceId' => 'next'
 				];
 				$params['link'] = $this->url->linkToRouteAbsolute('calendar.view.indexview.timerange.edit', $link);
-			} catch (\Exception $error) {
+			} catch (\Exception) {
 				// Do nothing
 			}
 		}

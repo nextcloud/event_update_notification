@@ -2,25 +2,8 @@
 
 declare(strict_types=1);
 /**
- * @copyright Copyright (c) 2018, Joas Schilling <coding@schilljs.com>
- *
- * @author Joas Schilling <coding@schilljs.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
 namespace OCA\EventUpdateNotification;
@@ -45,19 +28,11 @@ use Sabre\VObject\Recur\EventIterator;
  * @template-implements IEventListener<Event>
  */
 class EventListener implements IEventListener {
-	/** @var INotificationManager */
-	protected $notificationManager;
-
-	/** @var IGroupManager */
-	protected $groupManager;
-
-	/** @var IUserSession */
-	protected $userSession;
-
-	public function __construct(INotificationManager $notificationManager, IGroupManager $groupManager, IUserSession $userSession) {
-		$this->notificationManager = $notificationManager;
-		$this->groupManager = $groupManager;
-		$this->userSession = $userSession;
+	public function __construct(
+		protected INotificationManager $notificationManager,
+		protected IGroupManager $groupManager,
+		protected IUserSession $userSession,
+	) {
 	}
 
 	/**
@@ -139,7 +114,7 @@ class EventListener implements IEventListener {
 				'hasTime' => $hasTime,
 			]);
 
-		$users = $this->getUsersForShares($shares, $owner);
+		$users = $this->getUsersForShares($shares, $owner, $calendarData['id']);
 
 		foreach ($users as $user) {
 			if ($user === $currentUser) {
@@ -210,7 +185,7 @@ class EventListener implements IEventListener {
 	 * @param string $owner
 	 * @return string[]
 	 */
-	protected function getUsersForShares(array $shares, string $owner): array {
+	protected function getUsersForShares(array $shares, string $owner, int $calendarId): array {
 		$users = [$owner];
 		$groups = [];
 		foreach ($shares as $share) {
@@ -222,18 +197,40 @@ class EventListener implements IEventListener {
 			}
 		}
 
+		$groupAddedUsers = false;
 		if (!empty($groups)) {
 			foreach ($groups as $gid) {
 				$group = $this->groupManager->get($gid);
 				if ($group instanceof IGroup) {
 					foreach ($group->getUsers() as $user) {
+						$groupAddedUsers = true;
 						$users[] = $user->getUID();
 					}
 				}
 			}
 		}
 
-		return array_unique($users);
+		$users = array_unique($users);
+
+		if (!$groupAddedUsers) {
+			return $users;
+		}
+
+		/** @var \OCA\DAV\CalDAV\Sharing\Service $service */
+		$service = \OCP\Server::get(\OCA\DAV\CalDAV\Sharing\Service::class);
+		$unshares = $service->getUnshares($calendarId);
+		$usersToRemove = [];
+		foreach ($unshares as $unshare) {
+
+			$prinical = explode('/', $unshare['principaluri']);
+			if ($prinical[1] === 'users') {
+				$usersToRemove[] = $prinical[2];
+			}
+		}
+
+		$users = array_diff($users, $usersToRemove);
+
+		return $users;
 	}
 
 	/**

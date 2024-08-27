@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
+<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
   <file src="lib/AppInfo/Application.php">
     <UndefinedClass>
-      <code>CalendarObjectCreatedEvent</code>
-      <code>CalendarObjectDeletedEvent</code>
-      <code>CalendarObjectMovedToTrashEvent</code>
-      <code>CalendarObjectUpdatedEvent</code>
+      <code><![CDATA[CalendarObjectCreatedEvent]]></code>
+      <code><![CDATA[CalendarObjectDeletedEvent]]></code>
+      <code><![CDATA[CalendarObjectMovedToTrashEvent]]></code>
+      <code><![CDATA[CalendarObjectUpdatedEvent]]></code>
     </UndefinedClass>
   </file>
   <file src="lib/EventListener.php">
     <UndefinedClass>
-      <code>CalDavBackend</code>
-      <code>CalDavBackend</code>
-      <code>CalDavBackend</code>
-      <code>CalendarObjectCreatedEvent</code>
-      <code>Reader</code>
-      <code>\Sabre\VObject\Reader</code>
+      <code><![CDATA[CalDavBackend]]></code>
+      <code><![CDATA[CalDavBackend]]></code>
+      <code><![CDATA[CalDavBackend]]></code>
+      <code><![CDATA[CalendarObjectCreatedEvent]]></code>
+      <code><![CDATA[Reader]]></code>
+      <code><![CDATA[\OCA\DAV\CalDAV\Sharing\Service]]></code>
+      <code><![CDATA[\Sabre\VObject\Reader]]></code>
     </UndefinedClass>
     <UndefinedDocblockClass>
-      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
-      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
-      <code>\Sabre\VObject\Recur\MaxInstancesExceededException</code>
-      <code>\Sabre\VObject\Recur\NoInstancesException</code>
-      <code>\Sabre\VObject\Recur\NoInstancesException</code>
-      <code>\Sabre\VObject\Recur\NoInstancesException</code>
+      <code><![CDATA[$service]]></code>
+      <code><![CDATA[$service]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
+      <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
     </UndefinedDocblockClass>
   </file>
   <file src="lib/Notifier.php">
     <UndefinedClass>
-      <code>CalDavBackend</code>
-      <code>CalDavBackend</code>
-      <code>\OC_App</code>
+      <code><![CDATA[CalDavBackend]]></code>
+      <code><![CDATA[CalDavBackend]]></code>
+      <code><![CDATA[\OC_App]]></code>
     </UndefinedClass>
   </file>
 </files>

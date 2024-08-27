@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: CC0-1.0
+
 # Makefile for building the project
 
 app_name=event_update_notification
