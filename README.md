@@ -3,6 +3,8 @@
   - SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/event_update_notification)](https://api.reuse.software/info/github.com/nextcloud/event_update_notification)
+
 # Notifications for calendar event actions
 
 🆕 New event was created
