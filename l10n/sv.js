@@ -6,7 +6,7 @@ OC.L10N.register(
     "{actor} deleted {event} from {calendar}" : "{actor} tog bort {event} från {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} uppdaterade {event} i {calendar}",
     "Busy" : "Upptagen",
-    "Personal" : "Personligt",
+    "Personal" : "Privat",
     "Notifications for calendar event updates" : "Aviseringar för uppdateringar av kalenderhändelser",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Få avisering när en händelse i en delad kalender har lagts till, ändrats eller tagits bort."
 },
