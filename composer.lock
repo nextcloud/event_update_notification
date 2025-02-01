@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c4d5e253b9f29f8328e254c1c6bfab4",
+    "content-hash": "994a6f0fface04278c34d62c755d82bf",
     "packages": [],
     "packages-dev": [
         {
@@ -193,16 +193,16 @@
         },
         {
             "name": "psalm/phar",
-            "version": "5.26.1",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "8a38e7ad04499a0ccd2c506fd1da6fc01fff4547"
+                "reference": "65011fc1453292b88c79dd09549d8d04c4e06c75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/8a38e7ad04499a0ccd2c506fd1da6fc01fff4547",
-                "reference": "8a38e7ad04499a0ccd2c506fd1da6fc01fff4547",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/65011fc1453292b88c79dd09549d8d04c4e06c75",
+                "reference": "65011fc1453292b88c79dd09549d8d04c4e06c75",
                 "shasum": ""
             },
             "require": {
@@ -222,9 +222,9 @@
             "description": "Composer-based Psalm Phar",
             "support": {
                 "issues": "https://github.com/psalm/phar/issues",
-                "source": "https://github.com/psalm/phar/tree/5.26.1"
+                "source": "https://github.com/psalm/phar/tree/6.1.0"
             },
-            "time": "2024-09-09T16:22:43+00:00"
+            "time": "2025-01-30T19:46:07+00:00"
         },
         {
             "name": "psr/clock",
@@ -435,10 +435,10 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
