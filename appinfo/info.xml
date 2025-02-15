@@ -31,6 +31,6 @@
 	<screenshot>https://github.com/nickv-nextcloud/event_update_notification/raw/main/docs/demo.png</screenshot>
 
 	<dependencies>
-		<nextcloud min-version="30" max-version="30" />
+		<nextcloud min-version="30" max-version="31" />
 	</dependencies>
 </info>
