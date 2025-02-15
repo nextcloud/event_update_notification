@@ -192,14 +192,14 @@ class Notifier implements INotifier {
 			$data['name'] === CalDavBackend::PERSONAL_CALENDAR_NAME) {
 			return [
 				'type' => 'calendar',
-				'id' => $data['id'],
+				'id' => (string)$data['id'],
 				'name' => $this->l->t('Personal'),
 			];
 		}
 
 		return [
 			'type' => 'calendar',
-			'id' => $data['id'],
+			'id' => (string)$data['id'],
 			'name' => $data['name'],
 		];
 	}
