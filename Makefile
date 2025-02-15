@@ -49,6 +49,7 @@ appstore: clean
 	--exclude=/composer.json \
 	--exclude=/composer.lock \
 	--exclude=/Makefile \
+	--exclude=/psalm.xml \
 	$(project_dir)/ $(sign_dir)/$(app_name)
 	tar -czf $(build_dir)/$(app_name).tar.gz \
 		-C $(sign_dir) $(app_name)
