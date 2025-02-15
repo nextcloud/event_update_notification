@@ -6,21 +6,9 @@ SPDX-PackageSupplier = "Nextcloud <info@nextcloud.com>"
 SPDX-PackageDownloadLocation = "https://github.com/nextcloud/event_update_notification/"
 
 [[annotations]]
-path = ["l10n/**.js", "l10n/**.json"]
+path = ["l10n/**.js", "l10n/**.json", ".tx/config"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2016 Nextcloud GmbH and Nextcloud contributors"
-SPDX-License-Identifier = "AGPL-3.0-or-later"
-
-[[annotations]]
-path = ["js/**.js.map", "js/**.js"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2016 Nextcloud GmbH and Nextcloud contributors"
-SPDX-License-Identifier = "AGPL-3.0-or-later"
-
-[[annotations]]
-path = ["openapi.json", "openapi-**.json", "src/types/openapi/**.ts"]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "2023 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 [[annotations]]
@@ -30,7 +18,7 @@ SPDX-FileCopyrightText = "none"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = [".git-blame-ignore-revs", "composer.json", "composer.lock", ".tx/config"]
+path = ["composer.json", "composer.lock"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "none"
 SPDX-License-Identifier = "CC0-1.0"
