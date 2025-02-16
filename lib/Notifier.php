@@ -11,6 +11,7 @@ namespace OCA\EventUpdateNotification;
 use OCA\DAV\CalDAV\CalDavBackend;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\IConfig;
 use OCP\IDateTimeFormatter;
 use OCP\IL10N;
 use OCP\IURLGenerator;
@@ -39,6 +40,7 @@ class Notifier implements INotifier {
 		protected IUserManager $userManager,
 		protected INotificationManager $notificationManager,
 		protected IAppManager $appManager,
+		protected IConfig $config,
 		protected IDateTimeFormatter $dateTimeFormatter,
 	) {
 	}
@@ -96,11 +98,12 @@ class Notifier implements INotifier {
 			throw new AlreadyProcessedException();
 		}
 
+		$timeZone = $this->getUserTimezone($notification->getUser());
 		if (!empty($params['hasTime'])) {
 			$notification->setParsedMessage(
 				$this->dateTimeFormatter->formatDateTime(
 					$start,
-					'long', 'medium', null,
+					'long', 'medium', $timeZone,
 					$this->l
 				)
 			);
@@ -108,7 +111,7 @@ class Notifier implements INotifier {
 			$notification->setParsedMessage(
 				$this->dateTimeFormatter->formatDate(
 					$start,
-					'long', null,
+					'long', $timeZone,
 					$this->l
 				)
 			);
@@ -118,6 +121,17 @@ class Notifier implements INotifier {
 		$this->setSubjects($notification, $subject, $parsedParameters);
 
 		return $notification;
+	}
+
+	public function getUserTimezone(string $userId): \DateTimeZone {
+		return $this->timeFactory->getTimeZone(
+			$this->config->getUserValue(
+				$userId,
+				'core',
+				'timezone',
+				$this->config->getSystemValueString('default_timezone', 'UTC')
+			)
+		);
 	}
 
 	protected function setSubjects(INotification $notification, string $subject, array $parameters) {
