@@ -5,7 +5,7 @@
     "{actor} updated {event} in {calendar}" : "{actor} atjaunoja {event} iekš {calendar}",
     "Busy" : "Aizņemts",
     "Personal" : "Personīgs",
-    "Notifications for calendar event updates" : "Paziņojumi priekš kalendāra notikumu atjaunojumiem",
+    "Notifications for calendar event updates" : "Paziņojumi par kalendāra notikumu atjauninājumiem",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Saņem paziņojumu kad kalendāra notikums koplietotā kalendārā tiek pievienots, mainīts vai izdzēsts."
 },"pluralForm" :"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);"
 }
