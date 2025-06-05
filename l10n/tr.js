@@ -8,6 +8,6 @@ OC.L10N.register(
     "Busy" : "Meşgul",
     "Personal" : "Kişisel",
     "Notifications for calendar event updates" : "Takvim etkinliği güncelleme bildirimleri",
-    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Bu seçenek kullanıma alındığında, bir etkinlik paylaşılmış bir takvime eklendiğinde, düzenlendiğinde ya da silindiğinde bildirim gönderilir."
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Bu seçenek etkinse, bir etkinlik paylaşılmış bir takvime eklendiğinde, düzenlendiğinde ya da silindiğinde bildirim gönderilir."
 },
 "nplurals=2; plural=(n > 1);");
