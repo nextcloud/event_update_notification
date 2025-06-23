@@ -202,8 +202,8 @@ class Notifier implements INotifier {
 	}
 
 	protected function generateCalendarParameter(array $data): array {
-		if ($data['uri'] === CalDavBackend::PERSONAL_CALENDAR_URI &&
-			$data['name'] === CalDavBackend::PERSONAL_CALENDAR_NAME) {
+		if ($data['uri'] === CalDavBackend::PERSONAL_CALENDAR_URI
+			&& $data['name'] === CalDavBackend::PERSONAL_CALENDAR_NAME) {
 			return [
 				'type' => 'calendar',
 				'id' => (string)$data['id'],
