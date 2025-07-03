@@ -1,5 +1,11 @@
 { "translations": {
+    "Calendar event update notifications" : "Arifa ya sasisho la tukio la kalenda",
+    "{actor} created {event} in {calendar}" : "{actor}ametengeneza {event}katika{calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor}amefuta{event}kutoka {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor}amesasisha{event}katika{calendar}",
     "Busy" : "Bize",
-    "Personal" : "Binafsi"
+    "Personal" : "Binafsi",
+    "Notifications for calendar event updates" : "Arifa za masasisho ya matukio ya kalenda",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Pokea arifa wakati tukio katika kalenda iliyoshirikiwa liliongezwa, kurekebishwa au kufutwa."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
