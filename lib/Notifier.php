@@ -45,33 +45,17 @@ class Notifier implements INotifier {
 	) {
 	}
 
-	/**
-	 * Identifier of the notifier, only use [a-z0-9_]
-	 *
-	 * @return string
-	 * @since 17.0.0
-	 */
+	#[\Override]
 	public function getID(): string {
 		return 'event_update_notification';
 	}
 
-	/**
-	 * Human-readable name describing the notifier
-	 *
-	 * @return string
-	 * @since 17.0.0
-	 */
+	#[\Override]
 	public function getName(): string {
 		return $this->languageFactory->get('event_update_notification')->t('Calendar event update notifications');
 	}
 
-	/**
-	 * @param INotification $notification
-	 * @param string $languageCode The code of the language that should be used to prepare the notification
-	 * @return INotification
-	 * @throws UnknownNotificationException When the notification was not prepared by a notifier
-	 * @since 9.0.0
-	 */
+	#[\Override]
 	public function prepare(INotification $notification, string $languageCode): INotification {
 		if ($notification->getApp() !== 'event_update_notification') {
 			throw new UnknownNotificationException('Invalid app');
@@ -103,7 +87,7 @@ class Notifier implements INotifier {
 			$notification->setParsedMessage(
 				$this->dateTimeFormatter->formatDateTime(
 					$start,
-					'long', 'medium', $timeZone,
+					'long', 'short', $timeZone,
 					$this->l
 				)
 			);
@@ -134,6 +118,9 @@ class Notifier implements INotifier {
 		);
 	}
 
+	/**
+	 * @param array<string, array{id: string, type: string, name: string}> $parameters
+	 */
 	protected function setSubjects(INotification $notification, string $subject, array $parameters) {
 		$placeholders = $replacements = [];
 		foreach ($parameters as $placeholder => $parameter) {
