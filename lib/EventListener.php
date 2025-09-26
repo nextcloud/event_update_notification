@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace OCA\EventUpdateNotification;
 
 use OCA\DAV\CalDAV\CalDavBackend;
-use OCA\DAV\Events\CalendarObjectCreatedEvent;
-use OCA\DAV\Events\CalendarObjectDeletedEvent;
-use OCA\DAV\Events\CalendarObjectMovedToTrashEvent;
-use OCA\DAV\Events\CalendarObjectUpdatedEvent;
+use OCP\Calendar\Events\CalendarObjectCreatedEvent;
+use OCP\Calendar\Events\CalendarObjectDeletedEvent;
+use OCP\Calendar\Events\CalendarObjectMovedToTrashEvent;
+use OCP\Calendar\Events\CalendarObjectUpdatedEvent;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\IGroup;
@@ -35,11 +35,7 @@ class EventListener implements IEventListener {
 	) {
 	}
 
-	/**
-	 * @param Event $event
-	 * @throws \Sabre\VObject\Recur\MaxInstancesExceededException
-	 * @throws \Sabre\VObject\Recur\NoInstancesException
-	 */
+	#[\Override]
 	public function handle(Event $event): void {
 		if (!($event instanceof CalendarObjectCreatedEvent)
 			&& !($event instanceof CalendarObjectUpdatedEvent)

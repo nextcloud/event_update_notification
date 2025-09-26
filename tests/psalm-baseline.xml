@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
-  <file src="lib/AppInfo/Application.php">
-    <UndefinedClass>
-      <code><![CDATA[CalendarObjectCreatedEvent]]></code>
-      <code><![CDATA[CalendarObjectDeletedEvent]]></code>
-      <code><![CDATA[CalendarObjectMovedToTrashEvent]]></code>
-      <code><![CDATA[CalendarObjectUpdatedEvent]]></code>
-    </UndefinedClass>
-  </file>
+<files psalm-version="6.8.2@720ed6b578ac24f9543c65c3d4cecea0ff348ccd">
   <file src="lib/EventListener.php">
     <UndefinedClass>
       <code><![CDATA[CalDavBackend]]></code>
       <code><![CDATA[CalDavBackend]]></code>
       <code><![CDATA[CalDavBackend]]></code>
-      <code><![CDATA[CalendarObjectCreatedEvent]]></code>
       <code><![CDATA[Reader]]></code>
       <code><![CDATA[\OCA\DAV\CalDAV\Sharing\Service]]></code>
       <code><![CDATA[\Sabre\VObject\Reader]]></code>
@@ -23,8 +14,6 @@
       <code><![CDATA[$service]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
-      <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
-      <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
     </UndefinedDocblockClass>
@@ -33,7 +22,6 @@
     <UndefinedClass>
       <code><![CDATA[CalDavBackend]]></code>
       <code><![CDATA[CalDavBackend]]></code>
-      <code><![CDATA[\OC_App]]></code>
     </UndefinedClass>
   </file>
 </files>

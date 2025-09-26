@@ -6,6 +6,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.7.0 – 2025-09-26
+### Added
+- ✨ Add support for Nextcloud 32
+- 🏚️ Drop support for Nextcloud 30
+
 ## 2.6.1 – 2025-02-19
 ### Fixed
 - 🌐 Fix timezone in notification reminder email
