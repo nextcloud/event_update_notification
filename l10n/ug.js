@@ -2,7 +2,7 @@ OC.L10N.register(
     "event_update_notification",
     {
     "Calendar event update notifications" : "كالېندار پائالىيىتى يېڭىلاش ئۇقتۇرۇشى",
-    "{actor} created {event} in {calendar}" : "{ئارتىس} كالېنداردا {ھادىسە} قۇردى",
+    "{actor} created {event} in {calendar}" : "{actor} كالېندار {calendar}دا {event} قۇردى",
     "{actor} deleted {event} from {calendar}" : "{actor} ئۆچۈرۈلگەن {event} {calendar}",
     "{actor} updated {event} in {calendar}" : "{actor} يېڭىلانغان {event} {calendar}",
     "Busy" : "ئالدىراش",
