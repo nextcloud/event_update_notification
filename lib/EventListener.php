@@ -110,7 +110,7 @@ class EventListener implements IEventListener {
 				'hasTime' => $hasTime,
 			]);
 
-		$users = $this->getUsersForShares($shares, $owner, $calendarData['id']);
+		$users = $this->getUsersForShares($shares, $owner, (int)$calendarData['id']);
 
 		foreach ($users as $user) {
 			if ($user === $currentUser) {
@@ -185,11 +185,11 @@ class EventListener implements IEventListener {
 		$users = [$owner];
 		$groups = [];
 		foreach ($shares as $share) {
-			$prinical = explode('/', $share['{http://owncloud.org/ns}principal']);
-			if ($prinical[1] === 'users') {
-				$users[] = $prinical[2];
-			} elseif ($prinical[1] === 'groups') {
-				$groups[] = $prinical[2];
+			$principal = explode('/', $share['{http://owncloud.org/ns}principal']);
+			if ($principal[1] === 'users') {
+				$users[] = $principal[2];
+			} elseif ($principal[1] === 'groups') {
+				$groups[] = $principal[2];
 			}
 		}
 
@@ -218,9 +218,9 @@ class EventListener implements IEventListener {
 		$usersToRemove = [];
 		foreach ($unshares as $unshare) {
 
-			$prinical = explode('/', $unshare['principaluri']);
-			if ($prinical[1] === 'users') {
-				$usersToRemove[] = $prinical[2];
+			$principal = explode('/', $unshare['principaluri']);
+			if ($principal[1] === 'users') {
+				$usersToRemove[] = $principal[2];
 			}
 		}
 
