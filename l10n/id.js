@@ -1,7 +1,13 @@
 OC.L10N.register(
     "event_update_notification",
     {
+    "Calendar event update notifications" : "Notifikasi pembaruan acara kalender",
+    "{actor} created {event} in {calendar}" : "{actor} membuat {event} di {calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor} menghapus {event} dari {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} memperbarui {event} di {calendar}",
     "Busy" : "Sibuk",
-    "Personal" : "Personal"
+    "Personal" : "Pribadi",
+    "Notifications for calendar event updates" : "Notifikasi untuk pembaruan acara kalender",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Terima notifikasi saat sebuah acara di kalender bersama ditambahkan, diubah, atau dihapus."
 },
 "nplurals=1; plural=0;");
