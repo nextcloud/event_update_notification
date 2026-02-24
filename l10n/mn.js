@@ -7,6 +7,7 @@ OC.L10N.register(
     "{actor} updated {event} in {calendar}" : "{actor} {calendar} дотор {event} шинэчилсэн",
     "Busy" : "Завгүй",
     "Personal" : "Хувийн",
-    "Notifications for calendar event updates" : "Календарын үйл явдлын шинэчлэлтийн мэдэгдлүүд"
+    "Notifications for calendar event updates" : "Календарын үйл явдлын шинэчлэлтийн мэдэгдлүүд",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Хуваалцсан календарт үйл явдал нэмэгдэх, өөрчлөгдөх, устгагдах үед мэдэгдэл хүлээн авах."
 },
 "nplurals=2; plural=(n != 1);");
