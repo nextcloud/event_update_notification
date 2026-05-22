@@ -2,7 +2,7 @@ OC.L10N.register(
     "event_update_notification",
     {
     "Calendar event update notifications" : "Takvim etkinliği güncelleme bildirimleri",
-    "{actor} created {event} in {calendar}" : "{actor}, {calendar} takvimine {event} etkinliğini ekledi",
+    "{actor} created {event} in {calendar}" : "{actor}, {calendar} takviminde {event} etkinliğini oluşturdu",
     "{actor} deleted {event} from {calendar}" : "{actor}, {calendar} takviminden {event} etkinliğini sildi",
     "{actor} updated {event} in {calendar}" : "{actor}, {calendar} takvimindeki {event} etkinliğini güncelledi",
     "Busy" : "Meşgul",
