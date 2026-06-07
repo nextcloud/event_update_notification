@@ -1,12 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Nextcloud GmbH and Nextcloud contributors
 # SPDX-License-Identifier: MIT
-43851fd8e1125e1083be704056616c9a appstore-build-publish.yml
-d00c282925ce19918cc26ec0827d9726 dependabot-approve-merge.yml
+9cbb4d651a9ac018f04b663ddd2c87bb appstore-build-publish.yml
+003108ea0f5c12e1db591cd4613304d8 dependabot-approve-merge.yml
 80a58e5584612def0e751fcfb7669814 lint-info-xml.yml
-058024e4560ae1f18f6e4be9ecc0dacb lint-php-cs.yml
-d86aa09feb6ce2ad244926aff7adcb36 lint-php.yml
-a9c8cb17ea6ef415b6a847e0639775e7 psalm-matrix.yml
+a674b6e725bcbc1064f7b68c678a2df6 lint-php-cs.yml
+6078222f7c61540504fa9892729f4a04 lint-php.yml
+fb5b97180b546fb4f5e489799f48bf19 psalm-matrix.yml
 7db5b820f3750eebe988005a0bb2febd reuse.yml
 9dc6b717be0006fc7974a50351686fd7 sync-workflow-templates.yml
-78bd5cbcc4b48cb9b0d1b0fbbb4403d7 update-nextcloud-ocp-approve-merge.yml
-c967649adbf47f18e16520e9c1e3c755 update-nextcloud-ocp-matrix.yml
+a3440826636c0fd7c2d20b1de50363da update-nextcloud-ocp-approve-merge.yml
+92e22ed25d7d25df0eefbb165550eb0f update-nextcloud-ocp-matrix.yml
