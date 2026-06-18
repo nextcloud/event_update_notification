@@ -2,12 +2,12 @@ OC.L10N.register(
     "event_update_notification",
     {
     "Calendar event update notifications" : "اعلان‌های به‌روزرسانی رویداد تقویم",
-    "{actor} created {event} in {calendar}" : "{actor}  رویداد {event} را در {calendar} ایجاد کرد",
+    "{actor} created {event} in {calendar}" : "{actor} رویداد {event} را در {calendar} ایجاد کرد",
     "{actor} deleted {event} from {calendar}" : "{actor} رویداد {event} را از {calendar} حذف کرد",
-    "{actor} updated {event} in {calendar}" : "{actor} رویداد {event} را از {calendar} به‌روزرسانی کرد",
+    "{actor} updated {event} in {calendar}" : "{actor} رویداد {event} را در {calendar} به‌روزرسانی کرد",
     "Busy" : "مشغول",
     "Personal" : "شخصی",
-    "Notifications for calendar event updates" : "اعلان‌ها برای به‌روزرسانی رویدادهای تقویم",
-    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "هنگامی که یک رویداد در یک تقویم مشترک اضافه، تغییر یا حذف شده است، اعلان دریافت کنید."
+    "Notifications for calendar event updates" : "اعلان‌های به‌روزرسانی رویداد تقویم",
+    "Receive a notification when an event in a shared calendar was added, modified or deleted." : "هنگامی که رویدادی در تقویم اشتراکی اضافه، تغییر یا حذف می‌شود، یک اعلان دریافت کنید"
 },
 "nplurals=2; plural=(n > 1);");
