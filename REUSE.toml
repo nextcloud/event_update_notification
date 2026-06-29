@@ -12,7 +12,7 @@ SPDX-FileCopyrightText = "2016 Nextcloud GmbH and Nextcloud contributors"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 [[annotations]]
-path = [".github/CODEOWNERS", ".github/dependabot.yml"]
+path = [".github/CODEOWNERS", ".github/dependabot.yml", ".github/workflows/**.patch"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "none"
 SPDX-License-Identifier = "CC0-1.0"
