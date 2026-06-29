@@ -11,7 +11,7 @@
 	<description><![CDATA[Receive a notification when an event in a shared calendar was added, modified or deleted.]]></description>
 
 	<version>2.9.0</version>
-	<licence>agpl</licence>
+	<licence>AGPL-3.0-or-later</licence>
 	<author>Joas Schilling</author>
 
 	<namespace>EventUpdateNotification</namespace>

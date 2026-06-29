@@ -6,7 +6,7 @@
 	},
 	"name": "nextcloud/event_update_notification",
 	"description": "event update notification",
-	"license": "AGPL",
+	"license": "AGPL-3.0-or-later",
 	"config": {
 		"classmap-authoritative": true,
 		"optimize-autoloader": true,
