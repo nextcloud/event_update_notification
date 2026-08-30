@@ -7,6 +7,6 @@ e6351c608939c31ae1e32923aa82aa10 dependabot-approve-merge.yml
 cfb31e47b6e9ab65e76c89b028754a4e lint-php.yml
 43878db2acac51746332618c9f731553 psalm-matrix.yml
 2dbec18233063b42f4d8e03bbb43671c reuse.yml
-94c65e30a77686c079c6dfa54a008440 sync-workflow-templates.yml
+b47a9fe981a7435caea92db33f5ad121 sync-workflow-templates.yml
 a3440826636c0fd7c2d20b1de50363da update-nextcloud-ocp-approve-merge.yml
 7cc949cd51ea5d604986bbdcb75c95c7 update-nextcloud-ocp-matrix.yml
