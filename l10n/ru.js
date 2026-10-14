@@ -2,9 +2,9 @@ OC.L10N.register(
     "event_update_notification",
     {
     "Calendar event update notifications" : "Уведомления об обновлениях календаря",
-    "{actor} created {event} in {calendar}" : "{actor} создал(а) событие «{event}» в календаре «{calendar}»",
-    "{actor} deleted {event} from {calendar}" : "{actor} удалил(а) событие «{event}» из календаря «{calendar}»",
-    "{actor} updated {event} in {calendar}" : "{actor} обновил(а) событие «{event}» в календаре «{calendar}»",
+    "{actor} created {event} in {calendar}" : "{actor} создал(а) событие {event} в календаре {calendar}",
+    "{actor} deleted {event} from {calendar}" : "{actor} удалил(а) событие {event} из календаря {calendar}",
+    "{actor} updated {event} in {calendar}" : "{actor} обновил(а) событие {event} в календаре {calendar}",
     "Busy" : "Занят",
     "Personal" : "Личное",
     "Notifications for calendar event updates" : "Уведомления об изменениях событий",
