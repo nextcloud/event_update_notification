@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
+<files psalm-version="7.3.1@81bda61675df22fc4e5e1ceab1c33f4c61a4830b">
   <file src="lib/EventListener.php">
     <UndefinedClass>
       <code><![CDATA[CalDavBackend]]></code>
@@ -11,7 +11,7 @@
     </UndefinedClass>
     <UndefinedDocblockClass>
       <code><![CDATA[$service]]></code>
-      <code><![CDATA[$service]]></code>
+      <code><![CDATA[\OCA\DAV\CalDAV\Sharing\Service]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\MaxInstancesExceededException]]></code>
       <code><![CDATA[\Sabre\VObject\Recur\NoInstancesException]]></code>
