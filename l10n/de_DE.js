@@ -7,7 +7,7 @@ OC.L10N.register(
     "{actor} updated {event} in {calendar}" : "{actor} hat {event} in {calendar} aktualisiert",
     "Busy" : "Beschäftigt",
     "Personal" : "Persönlich",
-    "Notifications for calendar event updates" : "Benachrichtigungen für Aktualisierungen von Kalendererterminen",
+    "Notifications for calendar event updates" : "Benachrichtigungen über Aktualisierungen von Kalenderterminen",
     "Receive a notification when an event in a shared calendar was added, modified or deleted." : "Benachrichtigung erhalten wenn ein Termin in einem geteilten Kalender hinzugefügt, geändert oder gelöscht wird."
 },
 "nplurals=2; plural=(n != 1);");
